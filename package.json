@@ -13,6 +13,7 @@
     "@astrojs/check": "^0.7.0",
     "@astrojs/preact": "^3.5.0",
     "astro": "^4.10.3",
+    "astro-imagetools": "^0.9.0",
     "preact": "^10.22.0",
     "typescript": "^5.4.5"
   }

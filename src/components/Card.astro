@@ -1,18 +1,18 @@
 ---
 import { Image } from "astro:assets";
 import femaleVampire from "../imgs/female-vampire.svg";
-let backgroundUrl = 'url("src/imgs/female-vampire.png")';
+// let backgroundUrl = 'url("src/imgs/female-vampire.png")';
 import {
   BackgroundImage,
   ImageSupportDetection,
 } from "astro-imagetools/components";
 interface Props {
-  title: string;
-  body: string;
-  href: string;
+
+  backgroundImg: string;
 }
 
-const { href, title, body } = Astro.props;
+const { backgroundImg } = Astro.props;
+let backgroundUrl = `url(${backgroundImg})`;
 ---
 
 <!-- <li class="link-card">
@@ -33,7 +33,8 @@ const { href, title, body } = Astro.props;
     alt=""
   /> 
 </div> -->
-<div class="img-card" backgroundUrl={`url(${femaleVampire})`}></div>
+<!-- <div class="img-card" backgroundUrl={`url(${femaleVampire})`}></div> -->
+ <div class="img-card" backgroundUrl={`url(${backgroundImg})`}></div>
 <style define:vars={{ backgroundUrl }}>
   .img-card {
     width: 300px;

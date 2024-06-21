@@ -4,7 +4,7 @@ interface Props {
 }
 
 const { backgroundImg } = Astro.props;
-const backgroundUrl = `url(${backgroundImg})`;
+const backgroundUrl = `url(/${backgroundImg})`;
 ---
 
 <div class="img-card" style={`background-image: ${backgroundUrl}`}></div>

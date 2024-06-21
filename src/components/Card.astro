@@ -4,11 +4,10 @@ interface Props {
 }
 
 const { backgroundImg } = Astro.props;
-const backgroundUrl = `url(${backgroundImg})`;
+const backgroundUrl = `url(${import.meta.env.BASE_URL}${backgroundImg})`;
 ---
 
 <div class="img-card" style={`background-image: ${backgroundUrl}`}></div>
-
 
 <style>
   .img-card {

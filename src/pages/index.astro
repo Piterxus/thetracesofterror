@@ -2,7 +2,10 @@
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
 
-const femaleVampireCard = "./imgs/female-vampire.png";
+const cinema = "./imgs/cinema.svg";
+const comic = "./imgs/comic.svg";
+const tv = "./imgs/tv.svg";
+const others = "./imgs/others.svg";
 ---
 
 <Layout title="the traces of terror">
@@ -39,10 +42,10 @@ const femaleVampireCard = "./imgs/female-vampire.png";
       of the world of horror in works whose theme was not this.
     </p>
     <ul role="list" class="link-card-grid">
-      <Card backgroundImg={femaleVampireCard} />
-      <Card backgroundImg="" />
-      <Card backgroundImg="" />
-      <Card backgroundImg="" />
+      <Card backgroundImg={cinema} />
+      <Card backgroundImg={comic} />
+      <Card backgroundImg={tv} />
+      <Card backgroundImg={others} />
     </ul>
   </main>
 </Layout>

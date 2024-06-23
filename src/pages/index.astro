@@ -41,12 +41,12 @@ const others = "./imgs/others.svg";
       where they are least expected. That is, frames, vignettes or any other mention
       of the world of horror in works whose theme was not this.
     </p>
-    <ul role="list" class="link-card-grid">
+    <div class="link-card-grid">
       <Card backgroundImg={cinema} />
       <Card backgroundImg={comic} />
       <Card backgroundImg={tv} />
       <Card backgroundImg={others} />
-    </ul>
+    </div>
   </main>
 </Layout>
 
@@ -105,10 +105,12 @@ const others = "./imgs/others.svg";
     color: rgb(var(--accent-light));
   }
   .link-card-grid {
-    display: grid;
+    /* display: grid;
     grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-    gap: 4rem;
-    padding: 10;
-    padding-left: 10%;
+    gap: 4rem; */
+    display: flex;
+    justify-content: space-between;
+    /* padding: 10; */
+    /* padding-left: 10%; */
   }
 </style>

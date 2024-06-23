@@ -1,13 +1,14 @@
 ---
 interface Props {
   backgroundImg: string;
+  cardText: string;
 }
 
-const { backgroundImg } = Astro.props;
+const { backgroundImg, cardText } = Astro.props;
 const backgroundUrl = `url(/${backgroundImg})`;
 ---
 
-<div class="img-card" style={`background-image: ${backgroundUrl}`}></div>
+<div class="img-card" style={`background-image: ${backgroundUrl}`}><span class="card-text">{cardText}</span></div>
 
 
 <style>
@@ -24,6 +25,9 @@ const backgroundUrl = `url(/${backgroundImg})`;
     transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
     box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
     cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
   .img-card > a {
     width: 100%;
@@ -50,5 +54,14 @@ const backgroundUrl = `url(/${backgroundImg})`;
   }
   .img-card:is(:hover, :focus-within) h2 {
     color: rgb(var(--accent-light));
+  }
+
+  .card-text {
+   
+ 
+    
+    font-size: 1.5rem;
+    color: black;
+    
   }
 </style>

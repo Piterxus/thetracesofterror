@@ -2,13 +2,14 @@
 interface Props {
   backgroundImg: string;
   cardText: string;
+  colorText: string;
 }
 
-const { backgroundImg, cardText } = Astro.props;
+const { backgroundImg, cardText, colorText } = Astro.props;
 const backgroundUrl = `url(/${backgroundImg})`;
 ---
 
-<div class="img-card" style={`background-image: ${backgroundUrl}`}><span class="card-text">{cardText}</span></div>
+<div class="img-card" style={`background-image: ${backgroundUrl}`}><span style={`color: ${colorText}`} class="card-text">{cardText}</span></div>
 
 
 <style>

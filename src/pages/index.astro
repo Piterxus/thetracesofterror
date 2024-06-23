@@ -42,10 +42,10 @@ const others = "./imgs/others.svg";
       of the world of horror in works whose theme was not this.
     </p>
     <div class="link-card-grid">
-      <Card backgroundImg={cinema} cardText="CINEMA" colorText="black"/>
-      <Card backgroundImg={comic} cardText="COMIC!" colorText="black"/>
-      <Card backgroundImg={tv} cardText="TV" colorText="white"/>
-      <Card backgroundImg={others} cardText="OTHERS" colorText="black"/>
+      <Card backgroundImg={cinema} cardText="CINEMA" colorText="black" />
+      <Card backgroundImg={comic} cardText="COMIC!" colorText="black" />
+      <Card backgroundImg={tv} cardText="TV" colorText="white" />
+      <Card backgroundImg={others} cardText="OTHERS" colorText="black" />
     </div>
   </main>
 </Layout>
@@ -80,6 +80,8 @@ const others = "./imgs/others.svg";
     line-height: 1;
     text-align: center;
     margin-bottom: 1em;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: black;
   }
   .text-gradient {
     background-image: var(--accent-gradient);

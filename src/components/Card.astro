@@ -3,14 +3,16 @@ interface Props {
   backgroundImg: string;
   cardText: string;
   colorText: string;
+  section: string;
 }
 
-const { backgroundImg, cardText, colorText } = Astro.props;
+const { backgroundImg, cardText, colorText, section } = Astro.props;
 const backgroundUrl = `url(/${backgroundImg})`;
 ---
 
-<div class="img-card" style={`background-image: ${backgroundUrl}`}><span style={`color: ${colorText}`} class="card-text">{cardText}</span></div>
-
+<div class="img-card" style={`background-image: ${backgroundUrl}`}>
+  <a href=`/${section}` style={`color: ${colorText}`} class="card-text">{cardText}</a>
+</div>
 
 <style>
   .img-card {
@@ -31,14 +33,9 @@ const backgroundUrl = `url(/${backgroundImg})`;
     flex-direction: column;
   }
   .img-card > a {
-    width: 100%;
+    
     text-decoration: none;
-    line-height: 1.4;
-    padding: calc(1.5rem - 1px);
-    border-radius: 8px;
-    color: white;
-    background-color: #23262d;
-    opacity: 0.8;
+  
   }
   h2 {
     margin: 0;
@@ -59,6 +56,5 @@ const backgroundUrl = `url(/${backgroundImg})`;
 
   .card-text {
     font-size: 1.5rem;
-  
   }
 </style>

@@ -10,9 +10,13 @@ const { backgroundImg, cardText, colorText, section } = Astro.props;
 const backgroundUrl = `url(/${backgroundImg})`;
 ---
 
-<div class="img-card" style={`background-image: ${backgroundUrl}`}>
-  <a href=`/${section}` style={`color: ${colorText}`} class="card-text">{cardText}</a>
-</div>
+<a
+  href=`/${section}`
+  class="img-card"
+  style={`background-image: ${backgroundUrl}`}
+>
+  <span style={`color: ${colorText}`} class="card-text">{cardText}</span>
+</a>
 
 <style>
   .img-card {
@@ -32,10 +36,8 @@ const backgroundUrl = `url(/${backgroundImg})`;
     align-items: center;
     flex-direction: column;
   }
-  .img-card > a {
-    
+  .img-card {
     text-decoration: none;
-  
   }
   h2 {
     margin: 0;

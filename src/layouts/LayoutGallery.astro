@@ -10,6 +10,7 @@ const { sectionTitle } = Astro.props;
 <Layout title="the traces of terror">
   <div class="gallery">
     <h1>{sectionTitle}</h1>
+    <div class="imageGallery"></div>
   </div>
 </Layout>
 
@@ -31,5 +32,17 @@ const { sectionTitle } = Astro.props;
     width: 90vw;
     border-radius: 10px;
     margin: auto;
+    position: relative;
+  }
+  .imageGallery {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50vh;
+    height: 50vh;
+    background-color: #23262d;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
   }
 </style>

@@ -1,0 +1,35 @@
+---
+import Layout from "./Layout.astro";
+interface Props {
+  sectionTitle: string;
+}
+
+const { sectionTitle } = Astro.props;
+---
+
+<Layout title="the traces of terror">
+  <div class="gallery">
+    <h1>{sectionTitle}</h1>
+  </div>
+</Layout>
+
+<style>
+  @font-face {
+    font-family: "Fright";
+    src: url(../fright_maiden/Fright\ Maiden\ Demo.ttf) format("truetype");
+  }
+  h1 {
+    text-align: center;
+    font-family: "Fright";
+    color: white;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: black;
+  }
+  .gallery {
+    background-color: #13151a;
+    height: 90vh;
+    width: 90vw;
+    border-radius: 10px;
+    margin: auto;
+  }
+</style>

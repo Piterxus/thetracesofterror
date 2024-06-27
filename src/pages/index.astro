@@ -35,18 +35,34 @@ const others = "./imgs/ghost.svg";
 
     <h1>The Traces of <span class="text-gradient">Terror</span></h1>
     <div class="link-card-grid">
-      <Card backgroundImg={cinema} cardText="CINEMA" colorText="black" section="cinema"/>
-      <Card backgroundImg={comic} cardText="COMIC!" colorText="black" section="comic"/>
-      <Card backgroundImg={tv} cardText="TV" colorText="white" section="tv"/>
-      <Card backgroundImg={others} cardText="OTHERS" colorText="red" section="others"/>
+      <Card
+        backgroundImg={cinema}
+        cardText="CINEMA"
+        colorText="black"
+        section="cinema"
+      />
+      <Card
+        backgroundImg={comic}
+        cardText="COMIC!"
+        colorText="black"
+        section="comic"
+      />
+      <Card backgroundImg={tv} cardText="TV" colorText="white" section="tv" />
+      <Card
+        backgroundImg={others}
+        cardText="OTHERS"
+        colorText="red"
+        section="others"
+      />
     </div>
     <p class="instructions">
       I've been a horror fanatic since childhood. I seek out traces of terror in
       the most unusual places...<br />
       <strong>Challenge:</strong> Collect the greatest number of traces of terror
       where they are least expected. That is, frames, vignettes or any other mention
-      of the world of horror in works whose theme was not this.</br>
-      You can visit the gallery by clicking on any of the links and even collaborate by uploading your images!
+      of the world of horror in works whose theme was not this. You can visit the
+      gallery by clicking on any of the links and even collaborate by uploading your
+      images!
     </p>
   </main>
 </Layout>
@@ -120,5 +136,25 @@ const others = "./imgs/ghost.svg";
     justify-content: space-between;
     /* padding: 10; */
     /* padding-left: 10%; */
+  }
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2.5rem;
+    }
+    /* .link-card-grid {
+      flex-direction: column;
+      gap: 1rem;
+    } */
+  }
+
+  @media (max-width: 480px) {
+    .instructions {
+      display: none;
+    }
+    .link-card-grid {
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+    }
   }
 </style>

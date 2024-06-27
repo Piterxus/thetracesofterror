@@ -20,6 +20,10 @@ const arrowRight = "/imgs/arrow-right.svg";
       <div class="imageGallery"></div>
       <img class="arrow right" src={arrowRight} alt="Right Arrow" />
     </div>
+    <div class="fileUploadContainer">
+      <label for="file-upload" class="custom-file-upload"> Upload Image </label>
+      <input id="file-upload" type="file" />
+    </div>
   </div>
 </Layout>
 
@@ -43,27 +47,28 @@ const arrowRight = "/imgs/arrow-right.svg";
   }
   .gallery {
     background-color: #13151a;
-    height: 90vh;
+    height: 90vh; /* Asegúrate de que ocupe toda la altura de la ventana */
     width: 90vw;
     border-radius: 10px;
     margin: auto;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra el contenido verticalmente */
   }
 
   .galleryHeader {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    text-align: center;
     padding: 1rem;
   }
 
   .imageGalleryContainer {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    height: 100%;
-    position: relative;
+    flex-grow: 1;
+    position: relative; /* Asegura que el contenedor tenga posicionamiento relativo */
   }
   .imageGallery {
     position: absolute;
@@ -87,5 +92,66 @@ const arrowRight = "/imgs/arrow-right.svg";
   }
   .arrow.right {
     right: 10px;
+  }
+  .fileUploadContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  #file-upload {
+    display: none; /* Oculta el input real */
+  }
+  .custom-file-upload {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    background-color: #23262d;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    text-align: center;
+    font-family: "Fright";
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: black;
+  }
+  .custom-file-upload:hover {
+    background-color: #3a3d44;
+  }
+
+  @media (max-width: 768px) {
+    .imageGalleryContainer {
+      justify-content: center;
+    }
+    .arrow {
+      width: 10%;
+    }
+    .imageGallery {
+      width: 40vh;
+      height: 40vh;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .arrow {
+      display: none;
+    }
+    .imageGallery {
+      width: 80vw;
+      height: 80vw;
+    }
+    .fileUploadContainer {
+      position: static;
+      transform: none;
+      margin-top: 1rem;
+    }
+    .custom-file-upload {
+      width: 80%;
+      text-align: center;
+    }
   }
 </style>

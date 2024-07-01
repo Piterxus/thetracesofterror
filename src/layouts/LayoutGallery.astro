@@ -1,6 +1,7 @@
 ---
 import Layout from "./Layout.astro";
 import type { APIRoute } from "astro";
+import Imgs from "../components/Imgs";
 interface Props {
   sectionTitle: string;
 }
@@ -40,6 +41,7 @@ console.log(imgs);
       <label for="file-upload" class="custom-file-upload"> Upload Image </label>
       <input id="file-upload" type="file" />
     </div>
+    <Imgs client:load />
   </div>
   <script>
     document.addEventListener("DOMContentLoaded", () => {

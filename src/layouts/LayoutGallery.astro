@@ -8,7 +8,6 @@ interface Props {
 const { sectionTitle } = Astro.props;
 const arrowLeft = "/imgs/arrow-left.svg";
 const arrowRight = "/imgs/arrow-right.svg";
-
 ---
 
 <Layout title="the traces of terror">
@@ -27,6 +26,51 @@ const arrowRight = "/imgs/arrow-right.svg";
       <input id="file-upload" type="file" />
     </div>
   </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const fileUpload = document.getElementById(
+        "file-upload"
+      ) as HTMLInputElement | null;
+
+      if (!fileUpload) {
+        console.error("File upload input not found");
+        return;
+      }
+
+      fileUpload.addEventListener("change", async (e) => {
+        if (!fileUpload.files || fileUpload.files.length === 0) {
+          alert("Please select a file to upload.");
+          return;
+        }
+
+        const formData = new FormData();
+        const file = fileUpload.files[0];
+        formData.append("image", file);
+
+        try {
+          const response = await fetch("http://127.0.0.1:8000/api/v1/images", {
+            method: "POST",
+            body: formData,
+          });
+
+          const result = await response.json();
+
+          if (response.ok) {
+            alert("Image uploaded successfully: " + result.path);
+            // Aquí podrías agregar la lógica para mostrar la imagen en tu galería
+          } else {
+            alert("Error uploading image: " + result.error);
+          }
+        } catch (error) {
+          if (error instanceof Error) {
+            alert("Error uploading image: " + error.message);
+          } else {
+            alert("Unexpected error uploading image");
+          }
+        }
+      });
+    });
+  </script>
 </Layout>
 
 <style>

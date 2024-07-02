@@ -16,6 +16,9 @@ export default function Imgs() {
         // const res = await fetch("http://127.0.0.1:8000/api/v1/images");
         const res = await fetch("https://www.thetracesofterrorback.piterxus.com/api/v1/images");
         const data = await res.json();
+        const rawPath = window.location.pathname;
+        const cleanPath = rawPath.replace(/^\/|\/$/g, '');
+        console.log('CLEAN PATH', cleanPath);
         const filteredData = data.filter((img: any) => img.type === window.location.pathname.substring(1));
         // setImgs(data.map((img: any) => img.path));
         setImgs(filteredData.map((img: any) => img.path));

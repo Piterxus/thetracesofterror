@@ -18,8 +18,9 @@ export default function Imgs() {
         const data = await res.json();
         const rawPath = window.location.pathname;
         const cleanPath = rawPath.replace(/^\/|\/$/g, '');
-        console.log('CLEAN PATH', cleanPath);
-        const filteredData = data.filter((img: any) => img.type === window.location.pathname.substring(1));
+      
+        // const filteredData = data.filter((img: any) => img.type === window.location.pathname.substring(1));
+        const filteredData = data.filter((img: any) => img.type === cleanPath);
         // setImgs(data.map((img: any) => img.path));
         setImgs(filteredData.map((img: any) => img.path));
         
@@ -29,7 +30,7 @@ export default function Imgs() {
 
     useEffect(() => {
         fetchImgs();
-        console.log('PATH', window.location.pathname.substring(1));
+        
         
     }, []);
 

@@ -7,6 +7,8 @@ const arrowRight = "/imgs/arrow-right.svg";
 export default function Imgs() {
     const [imgs, setImgs] = useState<string[]>([]);
     const [currentImg, setCurrentImg] = useState<number>(0);
+    let touchStartX: number = 0;
+    let touchEndX: number = 0;
 
 
 
@@ -34,6 +36,19 @@ export default function Imgs() {
         
     }, []);
 
+    useEffect(() => {
+        document.addEventListener('touchstart', handleTouchStart, false);
+        document.addEventListener('touchmove', handleTouchMove, false);
+        document.addEventListener('touchend', handleTouchEnd, false);
+        return () => {
+            document.removeEventListener('touchstart', handleTouchStart, false);
+            document.removeEventListener('touchmove', handleTouchMove, false);
+            document.removeEventListener('touchend', handleTouchEnd, false);
+        };
+    }, [currentImg]);
+
+    
+
 
     function nextImg() {
         if (currentImg < imgs.length - 1) {
@@ -46,6 +61,23 @@ export default function Imgs() {
         }
     }
 
+    const handleTouchStart = (e: TouchEvent) => {
+        touchStartX = e.touches[0].clientX;
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+        touchEndX = e.touches[0].clientX;
+    };
+
+    const handleTouchEnd = () => {
+        if (touchStartX - touchEndX > 50) {
+            nextImg();
+        }
+
+        if (touchStartX - touchEndX < -50) {
+            prevImg();
+        }
+    };
 
 
 

@@ -40,7 +40,7 @@ export default function Imgs() {
     return (
         <div className={styles.imageGalleryContainer}>
 
-            <img onClick={prevImg} className={`${styles.arrow}`} src={arrowLeft} alt="Left Arrow" id="left" />
+            <img onClick={prevImg} className={`${styles.arrow} ${styles.left}`} src={arrowLeft} alt="Left Arrow" id="left" />
 
             <div className={styles.imageGallery}>
              
@@ -48,7 +48,7 @@ export default function Imgs() {
                 <img className={styles.galleryImage} key={currentImg} src={`https://www.thetracesofterrorback.piterxus.com/images/${imgs[currentImg]}`} />
             </div>
 
-            <img onClick={nextImg} className={styles.arrow} src={arrowRight} alt="Right Arrow" id="right" />
+            <img onClick={nextImg} className={`${styles.arrow} ${styles.right}`} src={arrowRight} alt="Right Arrow" id="right" />
         </div>
     );
 }

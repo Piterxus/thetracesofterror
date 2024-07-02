@@ -8,10 +8,11 @@ export default function Imgs() {
     const [currentImg, setCurrentImg] = useState<number>(0);
 
 
-
+  
 
     async function fetchImgs() {
-        const res = await fetch("http://127.0.0.1:8000/api/v1/images");
+        // const res = await fetch("http://127.0.0.1:8000/api/v1/images");
+        const res = await fetch("https://www.thetracesofterrorback.piterxus.com/api/v1/images");
         const data = await res.json();
         setImgs(data.map((img: any) => img.path));
     }
@@ -43,7 +44,8 @@ export default function Imgs() {
 
             <div className={styles.imageGallery}>
              
-                <img className={styles.galleryImage}  key={currentImg} src={`http://127.0.0.1:8000/images/${imgs[currentImg]}`} />
+                {/* <img className={styles.galleryImage}  key={currentImg} src={`http://127.0.0.1:8000/images/${imgs[currentImg]}`} /> */}
+                <img className={styles.galleryImage} key={currentImg} src={`https://www.thetracesofterrorback.piterxus.com/images/${imgs[currentImg]}`} />
             </div>
 
             <img onClick={nextImg} className={styles.arrow} src={arrowRight} alt="Right Arrow" id="right" />

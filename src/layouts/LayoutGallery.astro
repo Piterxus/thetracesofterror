@@ -9,14 +9,14 @@ interface Props {
 const { sectionTitle } = Astro.props;
 const arrowLeft = "/imgs/arrow-left.svg";
 const arrowRight = "/imgs/arrow-right.svg";
-const response = await fetch("http://127.0.0.1:8000/api/v1/images");
-// const response = await fetch(
-//   "https://www.thetracesofterrorback.piterxus.com/api/v1/images"
-// );
-const data = await response.json();
-const imgs = data.map((img: any) => img.path);
+// const response = await fetch("http://127.0.0.1:8000/api/v1/images");
+// // const response = await fetch(
+// //   "https://www.thetracesofterrorback.piterxus.com/api/v1/images"
+// // );
+// const data = await response.json();
+// const imgs = data.map((img: any) => img.path);
 
-console.log(imgs);
+// console.log(imgs);
 ---
 
 <Layout title="the traces of terror">
@@ -63,19 +63,19 @@ console.log(imgs);
         const file = fileUpload.files[0];
         formData.append("image", file);
         // ("https://www.thetracesofterrorback.piterxus.com/api/v1/images");
-        try {
-          const response = await fetch("http://127.0.0.1:8000/api/v1/images", {
-            method: "POST",
-            body: formData,
-          });
-          // try {
-          //   const response = await fetch(
-          //     "https://www.thetracesofterrorback.piterxus.com/api/v1/images",
-          //     {
-          //       method: "POST",
-          //       body: formData,
-          //     }
-          //   );
+        // try {
+        //   const response = await fetch("http://127.0.0.1:8000/api/v1/images", {
+        //     method: "POST",
+        //     body: formData,
+        //   });
+          try {
+            const response = await fetch(
+              "https://www.thetracesofterrorback.piterxus.com/api/v1/images",
+              {
+                method: "POST",
+                body: formData,
+              }
+            );
 
           const result = await response.json();
 

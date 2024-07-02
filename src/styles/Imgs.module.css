@@ -5,7 +5,7 @@
         padding: 1rem;
         flex-grow: 1;
         position: relative;
-        /* Asegura que el contenedor tenga posicionamiento relativo */
+
     }
 
     .imageGallery {
@@ -26,10 +26,10 @@
         height: 100%;
         object-fit: fill;
         border-radius: 5px;
-        box-shadow:0 0 35px #0FF;
-      
-               
-          
+        box-shadow: 0 0 35px #0FF;
+
+
+
     }
 
     .arrow {
@@ -38,6 +38,7 @@
         top: 50%;
         transform: translateY(-50%);
         cursor: pointer;
+        width: 5%;
     }
 
     .arrow.left {

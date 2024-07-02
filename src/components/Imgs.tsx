@@ -1,4 +1,4 @@
-import { useState } from 'preact/hooks';
+import { useEffect, useState } from 'preact/hooks';
 
 export default function Imgs() {
     const [imgs, setImgs] = useState<string[]>([]);
@@ -13,9 +13,17 @@ export default function Imgs() {
         setImgs(data.map((img: any) => img.path));
     }
 
-    
+    useEffect(() => {
+        fetchImgs();
+    }, []);
 
     
+    function nextImg() {
+        setCurrentImg(currentImg + 1);
+    }
+    function prevImg() {
+        setCurrentImg(currentImg - 1);
+    }
 
 
 
@@ -29,14 +37,15 @@ export default function Imgs() {
 
     return (
         <div>
-            <button onClick={fetchImgs}>Fetch Images</button>
+            {/* <button onClick={fetchImgs}>Fetch Images</button> */}
            
-
+            <button onClick={nextImg}>+</button>
+            <button onClick={prevImg}>-</button>
             <div>
-                {imgs.map((img, index) => (
+                {/* {imgs.map((img, index) => (
                     <img style={imgStyle} key={index} src={`http://127.0.0.1:8000/images/${img}`} />
-                ))}
-                <img style={imgStyle}  src={`http://127.0.0.1:8000/images/${imgs[0]}`} />
+                ))} */}
+                <img style={imgStyle}  src={`http://127.0.0.1:8000/images/${imgs[currentImg]}`} />
             </div>
 
             <div>

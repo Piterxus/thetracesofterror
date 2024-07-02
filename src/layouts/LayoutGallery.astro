@@ -25,7 +25,8 @@ console.log(imgs);
       <h1>{sectionTitle}</h1>
       <a href="/">BACK</a>
     </div>
-    <div class="imageGalleryContainer">
+    <Imgs client:load />
+    <!-- <div class="imageGalleryContainer">
       <img class="arrow left" src={arrowLeft} alt="Left Arrow" id="left" />
       <div class="imageGallery">
         <img
@@ -35,12 +36,11 @@ console.log(imgs);
         />
       </div>
       <img class="arrow right" src={arrowRight} alt="Right Arrow" id="right" />
-    </div>
+    </div> -->
     <div class="fileUploadContainer">
       <label for="file-upload" class="custom-file-upload"> Upload Image </label>
       <input id="file-upload" type="file" />
     </div>
-    <Imgs client:load />
   </div>
   <script>
     document.addEventListener("DOMContentLoaded", () => {

@@ -1,5 +1,36 @@
-  .arrow {
+    .imageGalleryContainer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        flex-grow: 1;
+        position: relative;
+        /* Asegura que el contenedor tenga posicionamiento relativo */
+    }
 
-      cursor: pointer;
-  }
+    .imageGallery {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 50vh;
+        height: 50vh;
+        background-color: #23262d;
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        /* background-image: url("http://127.0.0.1:8000/images/1719856396.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat; */
+    }
 
+    .galleryImage {
+        width: 100%;
+        height: 100%;
+        object-fit:fill;
+    }
+
+    .arrow {
+
+        cursor: pointer;
+    }

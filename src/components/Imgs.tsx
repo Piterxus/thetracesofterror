@@ -6,7 +6,7 @@ const arrowRight = "/imgs/arrow-right.svg";
 export default function Imgs() {
     const [imgs, setImgs] = useState<string[]>([]);
     const [currentImg, setCurrentImg] = useState<number>(0);
-    
+
 
 
 
@@ -20,46 +20,33 @@ export default function Imgs() {
         fetchImgs();
     }, []);
 
-    
+
     function nextImg() {
-      if (currentImg < imgs.length - 1) {
-        setCurrentImg(currentImg + 1);
-      }
+        if (currentImg < imgs.length - 1) {
+            setCurrentImg(currentImg + 1);
+        }
     }
     function prevImg() {
-       if (currentImg > 0) {
-        setCurrentImg(currentImg - 1);
-       }
+        if (currentImg > 0) {
+            setCurrentImg(currentImg - 1);
+        }
     }
 
 
 
-    const imgStyle = {
-        width: '200px',
-        height: '200px',
-        objectFit: 'cover',
-        borderRadius: '10px',
-        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-    };
+
 
     return (
-        <div>
-            {/* <button onClick={fetchImgs}>Fetch Images</button> */}
-           
-            {/* <button onClick={nextImg}>+</button>
-            <button onClick={prevImg}>-</button> */}
+        <div className={styles.imageGalleryContainer}>
+
             <img onClick={prevImg} className={`${styles.arrow}`} src={arrowLeft} alt="Left Arrow" id="left" />
-            <img onClick={nextImg} className={styles.arrow} src={arrowRight} alt="Right Arrow" id="right" />
-            <div>
-                {/* {imgs.map((img, index) => (
-                    <img style={imgStyle} key={index} src={`http://127.0.0.1:8000/images/${img}`} />
-                ))} */}
-                <img style={imgStyle} key={currentImg}  src={`http://127.0.0.1:8000/images/${imgs[currentImg]}`} />
+
+            <div className={styles.imageGallery}>
+             
+                <img className={styles.galleryImage}  key={currentImg} src={`http://127.0.0.1:8000/images/${imgs[currentImg]}`} />
             </div>
 
-            <div>
-                
-            </div>
+            <img onClick={nextImg} className={styles.arrow} src={arrowRight} alt="Right Arrow" id="right" />
         </div>
     );
 }

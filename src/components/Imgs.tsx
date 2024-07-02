@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'preact/hooks';
 import styles from '../styles/Imgs.module.css';
+
 const arrowLeft = "/imgs/arrow-left.svg";
 const arrowRight = "/imgs/arrow-right.svg";
 
@@ -8,17 +9,25 @@ export default function Imgs() {
     const [currentImg, setCurrentImg] = useState<number>(0);
 
 
+
   
 
     async function fetchImgs() {
         // const res = await fetch("http://127.0.0.1:8000/api/v1/images");
         const res = await fetch("https://www.thetracesofterrorback.piterxus.com/api/v1/images");
         const data = await res.json();
-        setImgs(data.map((img: any) => img.path));
+        const filteredData = data.filter((img: any) => img.type === window.location.pathname.substring(1));
+        // setImgs(data.map((img: any) => img.path));
+        setImgs(filteredData.map((img: any) => img.path));
+        
+        
+        
     }
 
     useEffect(() => {
         fetchImgs();
+       
+        
     }, []);
 
 

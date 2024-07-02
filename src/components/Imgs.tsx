@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'preact/hooks';
+import styles from '../styles/Imgs.module.css';
 const arrowLeft = "/imgs/arrow-left.svg";
 const arrowRight = "/imgs/arrow-right.svg";
 
@@ -47,13 +48,13 @@ export default function Imgs() {
            
             {/* <button onClick={nextImg}>+</button>
             <button onClick={prevImg}>-</button> */}
-            <img onClick={prevImg} class="arrow left" src={arrowLeft} alt="Left Arrow" id="left" />
-            <img onClick={nextImg} class="arrow right" src={arrowRight} alt="Right Arrow" id="right" />
+            <img onClick={prevImg} className={`${styles.arrow}`} src={arrowLeft} alt="Left Arrow" id="left" />
+            <img onClick={nextImg} className={styles.arrow} src={arrowRight} alt="Right Arrow" id="right" />
             <div>
                 {/* {imgs.map((img, index) => (
                     <img style={imgStyle} key={index} src={`http://127.0.0.1:8000/images/${img}`} />
                 ))} */}
-                <img style={imgStyle}  src={`http://127.0.0.1:8000/images/${imgs[currentImg]}`} />
+                <img style={imgStyle} key={currentImg}  src={`http://127.0.0.1:8000/images/${imgs[currentImg]}`} />
             </div>
 
             <div>

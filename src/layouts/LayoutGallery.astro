@@ -16,7 +16,6 @@ const response = await fetch("http://127.0.0.1:8000/api/v1/images");
 const data = await response.json();
 const imgs = data.map((img: any) => img.path);
 
-
 console.log(imgs);
 ---
 
@@ -35,7 +34,7 @@ console.log(imgs);
           class="galleryImage"
         />
       </div>
-      <img class="arrow right" src={arrowRight} alt="Right Arrow" id="right"/>
+      <img class="arrow right" src={arrowRight} alt="Right Arrow" id="right" />
     </div>
     <div class="fileUploadContainer">
       <label for="file-upload" class="custom-file-upload"> Upload Image </label>
@@ -82,6 +81,7 @@ console.log(imgs);
 
           if (response.ok) {
             alert("Image uploaded successfully: " + result.path);
+            window.location.reload();
             // Aquí podrías agregar la lógica para mostrar la imagen en tu galería
           } else {
             alert("Error uploading image: " + result.error);

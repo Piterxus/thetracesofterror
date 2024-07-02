@@ -1,6 +1,7 @@
 ---
 import Layout from "./Layout.astro";
 import type { APIRoute } from "astro";
+import Imgs from "../components/Imgs";
 interface Props {
   sectionTitle: string;
 }
@@ -8,6 +9,14 @@ interface Props {
 const { sectionTitle } = Astro.props;
 const arrowLeft = "/imgs/arrow-left.svg";
 const arrowRight = "/imgs/arrow-right.svg";
+const response = await fetch("http://127.0.0.1:8000/api/v1/images");
+// const response = await fetch(
+//   "https://www.thetracesofterrorback.piterxus.com/api/v1/images"
+// );
+const data = await response.json();
+const imgs = data.map((img: any) => img.path);
+
+console.log(imgs);
 ---
 
 <Layout title="the traces of terror">
@@ -16,11 +25,18 @@ const arrowRight = "/imgs/arrow-right.svg";
       <h1>{sectionTitle}</h1>
       <a href="/">BACK</a>
     </div>
-    <div class="imageGalleryContainer">
-      <img class="arrow left" src={arrowLeft} alt="Left Arrow" />
-      <div class="imageGallery"></div>
-      <img class="arrow right" src={arrowRight} alt="Right Arrow" />
-    </div>
+    <Imgs client:load />
+    <!-- <div class="imageGalleryContainer">
+      <img class="arrow left" src={arrowLeft} alt="Left Arrow" id="left" />
+      <div class="imageGallery">
+        <img
+          src={`http://127.0.0.1:8000/images/${imgs[0]}`}
+          alt="Gallery Image"
+          class="galleryImage"
+        />
+      </div>
+      <img class="arrow right" src={arrowRight} alt="Right Arrow" id="right" />
+    </div> -->
     <div class="fileUploadContainer">
       <label for="file-upload" class="custom-file-upload"> Upload Image </label>
       <input id="file-upload" type="file" />
@@ -46,17 +62,26 @@ const arrowRight = "/imgs/arrow-right.svg";
         const formData = new FormData();
         const file = fileUpload.files[0];
         formData.append("image", file);
-
+        // ("https://www.thetracesofterrorback.piterxus.com/api/v1/images");
         try {
           const response = await fetch("http://127.0.0.1:8000/api/v1/images", {
             method: "POST",
             body: formData,
           });
+          // try {
+          //   const response = await fetch(
+          //     "https://www.thetracesofterrorback.piterxus.com/api/v1/images",
+          //     {
+          //       method: "POST",
+          //       body: formData,
+          //     }
+          //   );
 
           const result = await response.json();
 
           if (response.ok) {
             alert("Image uploaded successfully: " + result.path);
+            window.location.reload();
             // Aquí podrías agregar la lógica para mostrar la imagen en tu galería
           } else {
             alert("Error uploading image: " + result.error);
@@ -126,6 +151,15 @@ const arrowRight = "/imgs/arrow-right.svg";
     background-color: #23262d;
     box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
     border-radius: 10px;
+    /* background-image: url("http://127.0.0.1:8000/images/1719856396.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; */
+  }
+  .galleryImage {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
   .arrow {
     position: absolute;

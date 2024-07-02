@@ -19,10 +19,14 @@ export default function Imgs() {
 
     
     function nextImg() {
+      if (currentImg < imgs.length - 1) {
         setCurrentImg(currentImg + 1);
+      }
     }
     function prevImg() {
+       if (currentImg > 0) {
         setCurrentImg(currentImg - 1);
+       }
     }
 
 

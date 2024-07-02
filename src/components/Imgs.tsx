@@ -2,7 +2,7 @@ import { useEffect, useState } from 'preact/hooks';
 
 export default function Imgs() {
     const [imgs, setImgs] = useState<string[]>([]);
-    const [currentImg, setCurrentImg] = useState<Number>(0);
+    const [currentImg, setCurrentImg] = useState<number>(0);
     
 
 

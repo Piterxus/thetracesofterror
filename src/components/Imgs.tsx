@@ -26,7 +26,7 @@ export default function Imgs() {
 
     useEffect(() => {
         fetchImgs();
-       
+        console.log('PATH', window.location.pathname.substring(1));
         
     }, []);
 

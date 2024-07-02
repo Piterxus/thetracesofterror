@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'preact/hooks';
+const arrowLeft = "/imgs/arrow-left.svg";
+const arrowRight = "/imgs/arrow-right.svg";
 
 export default function Imgs() {
     const [imgs, setImgs] = useState<string[]>([]);
@@ -43,8 +45,10 @@ export default function Imgs() {
         <div>
             {/* <button onClick={fetchImgs}>Fetch Images</button> */}
            
-            <button onClick={nextImg}>+</button>
-            <button onClick={prevImg}>-</button>
+            {/* <button onClick={nextImg}>+</button>
+            <button onClick={prevImg}>-</button> */}
+            <img onClick={prevImg} class="arrow left" src={arrowLeft} alt="Left Arrow" id="left" />
+            <img onClick={nextImg} class="arrow right" src={arrowRight} alt="Right Arrow" id="right" />
             <div>
                 {/* {imgs.map((img, index) => (
                     <img style={imgStyle} key={index} src={`http://127.0.0.1:8000/images/${img}`} />

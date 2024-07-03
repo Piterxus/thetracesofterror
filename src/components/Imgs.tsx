@@ -10,89 +10,63 @@ export default function Imgs() {
     let touchStartX: number = 0;
     let touchEndX: number = 0;
 
-
-
-  
-
     async function fetchImgs() {
-        // const res = await fetch("http://127.0.0.1:8000/api/v1/images");
         const res = await fetch("https://www.thetracesofterrorback.piterxus.com/api/v1/images");
         const data = await res.json();
         const rawPath = window.location.pathname;
         const cleanPath = rawPath.replace(/^\/|\/$/g, '');
-      
-        // const filteredData = data.filter((img: any) => img.type === window.location.pathname.substring(1));
         const filteredData = data.filter((img: any) => img.type === cleanPath);
-        // setImgs(data.map((img: any) => img.path));
         setImgs(filteredData.map((img: any) => img.path));
-        
-        
-        
     }
 
     useEffect(() => {
         fetchImgs();
-        
-        
     }, []);
 
     useEffect(() => {
+        const handleTouchStart = (e: TouchEvent) => {
+            touchStartX = e.touches[0].clientX;
+        };
+
+        const handleTouchMove = (e: TouchEvent) => {
+            touchEndX = e.touches[0].clientX;
+        };
+
+        const handleTouchEnd = () => {
+            if (touchStartX - touchEndX > 50) {
+                nextImg();
+            }
+
+            if (touchStartX - touchEndX < -50) {
+                prevImg();
+            }
+        };
+
         document.addEventListener('touchstart', handleTouchStart, false);
         document.addEventListener('touchmove', handleTouchMove, false);
         document.addEventListener('touchend', handleTouchEnd, false);
+
         return () => {
             document.removeEventListener('touchstart', handleTouchStart, false);
             document.removeEventListener('touchmove', handleTouchMove, false);
             document.removeEventListener('touchend', handleTouchEnd, false);
         };
-    }, [currentImg]);
-
-    
-
+    }, []);
 
     function nextImg() {
-        if (currentImg < imgs.length - 1) {
-            setCurrentImg(currentImg + 1);
-        }
+        setCurrentImg((prev) => (imgs.length > 0 ? (prev + 1) % imgs.length : 0));
     }
+
     function prevImg() {
-        if (currentImg > 0) {
-            setCurrentImg(currentImg - 1);
-        }
+        setCurrentImg((prev) => (imgs.length > 0 ? (prev - 1 + imgs.length) % imgs.length : 0));
     }
-
-    const handleTouchStart = (e: TouchEvent) => {
-        touchStartX = e.touches[0].clientX;
-    };
-
-    const handleTouchMove = (e: TouchEvent) => {
-        touchEndX = e.touches[0].clientX;
-    };
-
-    const handleTouchEnd = () => {
-        if (touchStartX - touchEndX > 50) {
-            nextImg();
-        }
-
-        if (touchStartX - touchEndX < -50) {
-            prevImg();
-        }
-    };
-
-
-
 
     return (
         <div className={styles.imageGalleryContainer}>
-
             <img onClick={prevImg} className={`${styles.arrow} ${styles.left}`} src={arrowLeft} alt="Left Arrow" id="left" />
-
             <div className={styles.imageGallery}>
-             
-                {/* <img className={styles.galleryImage}  key={currentImg} src={`http://127.0.0.1:8000/images/${imgs[currentImg]}`} /> */}
-                <img className={styles.galleryImage} key={currentImg} src={`https://www.thetracesofterrorback.piterxus.com/images/${imgs[currentImg]}`} />
+                <img onTouchStart={nextImg} className={styles.galleryImage} key={currentImg} src={`https://www.thetracesofterrorback.piterxus.com/images/${imgs[currentImg]}`} />
             </div>
-
             <img onClick={nextImg} className={`${styles.arrow} ${styles.right}`} src={arrowRight} alt="Right Arrow" id="right" />
         </div>
     );

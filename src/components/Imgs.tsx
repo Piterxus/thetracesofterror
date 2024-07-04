@@ -3,7 +3,7 @@ import styles from '../styles/Imgs.module.css';
 
 const arrowLeft = "/imgs/arrow-left.svg";
 const arrowRight = "/imgs/arrow-right.svg";
-console.log(".ENV", import.meta.env.PUBLIC_IMAGES_API_URL);
+
 export default function Imgs() {
     const [imgs, setImgs] = useState<string[]>([]);
     const [currentImg, setCurrentImg] = useState<number>(0);

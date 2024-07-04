@@ -11,7 +11,7 @@ export default function Imgs() {
     let touchEndX: number = 0;
 
     async function fetchImgs() {
-        // const res = await fetch("https://www.thetracesofterrorback.piterxus.com/api/v1/images");
+      
         const res = await fetch(import.meta.env.PUBLIC_IMAGES_API_URL);
         const data = await res.json();
         const rawPath = window.location.pathname;

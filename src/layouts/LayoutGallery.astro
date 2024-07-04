@@ -40,15 +40,10 @@ const { sectionTitle } = Astro.props;
         const formData = new FormData();
         const file = fileUpload.files[0];
         formData.append("image", file);
-        // ("https://www.thetracesofterrorback.piterxus.com/api/v1/images");
-        // try {
-        //   const response = await fetch("http://127.0.0.1:8000/api/v1/images", {
-        //     method: "POST",
-        //     body: formData,
-        //   });
+      
         try {
           const response = await fetch(
-            // "https://www.thetracesofterrorback.piterxus.com/api/v1/images",
+          
             import.meta.env.PUBLIC_IMAGES_API_URL,
             {
               method: "POST",

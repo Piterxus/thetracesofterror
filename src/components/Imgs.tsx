@@ -3,7 +3,7 @@ import styles from '../styles/Imgs.module.css';
 
 const arrowLeft = "/imgs/arrow-left.svg";
 const arrowRight = "/imgs/arrow-right.svg";
-
+console.log(".ENV", import.meta.env.PUBLIC_IMAGES_API_URL);
 export default function Imgs() {
     const [imgs, setImgs] = useState<string[]>([]);
     const [currentImg, setCurrentImg] = useState<number>(0);
@@ -11,7 +11,8 @@ export default function Imgs() {
     let touchEndX: number = 0;
 
     async function fetchImgs() {
-        const res = await fetch("https://www.thetracesofterrorback.piterxus.com/api/v1/images");
+        // const res = await fetch("https://www.thetracesofterrorback.piterxus.com/api/v1/images");
+        const res = await fetch(import.meta.env.PUBLIC_IMAGES_API_URL);
         const data = await res.json();
         const rawPath = window.location.pathname;
         const cleanPath = rawPath.replace(/^\/|\/$/g, '');
@@ -65,7 +66,7 @@ export default function Imgs() {
         <div className={styles.imageGalleryContainer}>
             <img onClick={prevImg} className={`${styles.arrow} ${styles.left}`} src={arrowLeft} alt="Left Arrow" id="left" />
             <div className={styles.imageGallery}>
-                <img onTouchStart={nextImg} className={styles.galleryImage} key={currentImg} src={`https://www.thetracesofterrorback.piterxus.com/images/${imgs[currentImg]}`} />
+                <img onTouchStart={nextImg} className={styles.galleryImage} key={currentImg} src={`${import.meta.env.PUBLIC_IMAGES_URL}${imgs[currentImg]}`} />
             </div>
             <img onClick={nextImg} className={`${styles.arrow} ${styles.right}`} src={arrowRight} alt="Right Arrow" id="right" />
         </div>

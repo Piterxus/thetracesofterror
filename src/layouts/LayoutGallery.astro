@@ -48,7 +48,8 @@ const { sectionTitle } = Astro.props;
         //   });
         try {
           const response = await fetch(
-            "https://www.thetracesofterrorback.piterxus.com/api/v1/images",
+            // "https://www.thetracesofterrorback.piterxus.com/api/v1/images",
+            import.meta.env.PUBLIC_IMAGES_API_URL,
             {
               method: "POST",
               body: formData,

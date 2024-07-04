@@ -56,7 +56,7 @@ const { sectionTitle } = Astro.props;
           if (response.ok) {
             alert("Image uploaded successfully: " + result.path);
             window.location.reload();
-            // Aquí podrías agregar la lógica para mostrar la imagen en tu galería
+           
           } else {
             alert("Error uploading image: " + result.error);
           }
@@ -79,8 +79,7 @@ const { sectionTitle } = Astro.props;
   }
   body {
     margin: 0;
-    overflow: hidden; /* Evita el scroll vertical */
-  }
+    overflow: hidden; 
   h1,
   a {
     text-align: center;
@@ -92,15 +91,14 @@ const { sectionTitle } = Astro.props;
   }
   .gallery {
     background-color: #13151a;
-    height: 90vh; /* Asegúrate de que ocupe toda la altura de la ventana */
+    height: 90vh; 
     width: 90vw;
     border-radius: 10px;
     margin: auto;
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centra el contenido verticalmente */
-  }
+    justify-content: center; 
 
   .galleryHeader {
     text-align: center;

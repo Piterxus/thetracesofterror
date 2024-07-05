@@ -36,9 +36,14 @@ const { sectionTitle } = Astro.props;
           alert("Please select a file to upload.");
           return;
         }
-
-        const formData = new FormData();
         const file = fileUpload.files[0];
+         const validImageTypes = ["image/jpeg", "image/png", "image/gif", "image/svg+xml", "image/webp"];
+        if (!validImageTypes.includes(file.type)) {
+          alert("Only image files are allowed!");
+          return;
+        }
+        const formData = new FormData();
+     
         formData.append("image", file);
       
         try {

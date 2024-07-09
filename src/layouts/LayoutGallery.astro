@@ -20,61 +20,6 @@ const { sectionTitle } = Astro.props;
       <input id="file-upload" type="file" />
     </div>
   </div>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const fileUpload = document.getElementById(
-        "file-upload"
-      ) as HTMLInputElement | null;
-
-      if (!fileUpload) {
-        console.error("File upload input not found");
-        return;
-      }
-
-      fileUpload.addEventListener("change", async (e) => {
-        if (!fileUpload.files || fileUpload.files.length === 0) {
-          alert("Please select a file to upload.");
-          return;
-        }
-        const file = fileUpload.files[0];
-         const validImageTypes = ["image/jpeg", "image/png", "image/gif", "image/svg+xml", "image/webp"];
-        if (!validImageTypes.includes(file.type)) {
-          alert("Only image files are allowed!");
-          return;
-        }
-        const formData = new FormData();
-     
-        formData.append("image", file);
-      
-        try {
-          const response = await fetch(
-          
-            import.meta.env.PUBLIC_IMAGES_API_URL,
-            {
-              method: "POST",
-              body: formData,
-            }
-          );
-
-          const result = await response.json();
-
-          if (response.ok) {
-            alert("Image uploaded successfully: " + result.path);
-            window.location.reload();
-           
-          } else {
-            alert("Error uploading image: " + result.error);
-          }
-        } catch (error) {
-          if (error instanceof Error) {
-            alert("Error uploading image: " + error.message);
-          } else {
-            alert("Unexpected error uploading image");
-          }
-        }
-      });
-    });
-  </script>
 </Layout>
 
 <style>
@@ -84,7 +29,8 @@ const { sectionTitle } = Astro.props;
   }
   body {
     margin: 0;
-    overflow: hidden; 
+    overflow: hidden;
+  }
   h1,
   a {
     text-align: center;
@@ -96,20 +42,19 @@ const { sectionTitle } = Astro.props;
   }
   .gallery {
     background-color: #13151a;
-    height: 90vh; 
+    height: 90vh;
     width: 90vw;
     border-radius: 10px;
     margin: auto;
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center; 
-
+    justify-content: center;
+  }
   .galleryHeader {
     text-align: center;
     padding: 1rem;
   }
-
   .fileUploadContainer {
     display: flex;
     justify-content: center;
@@ -121,7 +66,7 @@ const { sectionTitle } = Astro.props;
     transform: translateX(-50%);
   }
   #file-upload {
-    display: none; /* Oculta el input real */
+    display: none;
   }
   .custom-file-upload {
     display: inline-block;
@@ -139,11 +84,7 @@ const { sectionTitle } = Astro.props;
   .custom-file-upload:hover {
     background-color: #3a3d44;
   }
-
-
-
   @media (max-width: 480px) {
-
     .fileUploadContainer {
       position: static;
       transform: none;

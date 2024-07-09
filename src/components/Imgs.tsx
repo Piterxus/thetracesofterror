@@ -11,17 +11,76 @@ export default function Imgs() {
     let touchEndX: number = 0;
 
     async function fetchImgs() {
-      
-        const res = await fetch(import.meta.env.PUBLIC_IMAGES_API_URL);
-        const data = await res.json();
-        const rawPath = window.location.pathname;
-        const cleanPath = rawPath.replace(/^\/|\/$/g, '');
-        const filteredData = data.filter((img: any) => img.type === cleanPath);
-        setImgs(filteredData.map((img: any) => img.path));
+        try {
+            const res = await fetch(import.meta.env.PUBLIC_IMAGES_API_URL);
+            if (!res.ok) {
+                throw new Error(`Failed to fetch images: ${res.statusText}`);
+            }
+            const data = await res.json();
+            const rawPath = window.location.pathname;
+            const cleanPath = rawPath.replace(/^\/|\/$/g, '');
+            const filteredData = data.filter((img: any) => img.type === cleanPath);
+            setImgs(filteredData.map((img: any) => img.path));
+        } catch (error) {
+            console.error("Error fetching images:", error);
+        }
     }
 
     useEffect(() => {
         fetchImgs();
+
+        const handleImageUploaded = () => {
+            fetchImgs();
+        };
+
+        document.addEventListener('imageUploaded', handleImageUploaded);
+
+        const fileUpload = document.getElementById('file-upload') as HTMLInputElement | null;
+
+        if (fileUpload) {
+            fileUpload.addEventListener("change", async (e) => {
+                if (!fileUpload.files || fileUpload.files.length === 0) {
+                    alert("Please select a file to upload.");
+                    return;
+                }
+
+                const file = fileUpload.files[0];
+                const validImageTypes = ["image/jpeg", "image/png", "image/gif", "image/svg+xml", "image/webp"];
+                if (!validImageTypes.includes(file.type)) {
+                    alert("Only image files are allowed!");
+                    return;
+                }
+
+                const formData = new FormData();
+                formData.append("image", file);
+
+                try {
+                    const response = await fetch(import.meta.env.PUBLIC_IMAGES_API_URL, {
+                        method: "POST",
+                        body: formData,
+                    });
+
+                    const result = await response.json();
+
+                    if (response.ok) {
+                        alert("Image uploaded successfully: " + result.path);
+                        document.dispatchEvent(new CustomEvent('imageUploaded'));
+                    } else {
+                        alert("Error uploading image: " + result.error);
+                    }
+                } catch (error) {
+                    if (error instanceof Error) {
+                        alert("Error uploading image: " + error.message);
+                    } else {
+                        alert("Unexpected error uploading image");
+                    }
+                }
+            });
+        }
+
+        return () => {
+            document.removeEventListener('imageUploaded', handleImageUploaded);
+        };
     }, []);
 
     useEffect(() => {
@@ -66,7 +125,15 @@ export default function Imgs() {
         <div className={styles.imageGalleryContainer}>
             <img onClick={prevImg} className={`${styles.arrow} ${styles.left}`} src={arrowLeft} alt="Left Arrow" id="left" />
             <div className={styles.imageGallery}>
-                <img onTouchStart={nextImg} className={styles.galleryImage} key={currentImg} src={`${import.meta.env.PUBLIC_IMAGES_URL}${imgs[currentImg]}`} />
+                {imgs.length > 0 && (
+                    <img
+                        onTouchStart={nextImg}
+                        className={styles.galleryImage}
+                        key={currentImg}
+                        src={`${import.meta.env.PUBLIC_IMAGES_URL}${imgs[currentImg]}`}
+                        alt={`Image ${currentImg}`}
+                    />
+                )}
             </div>
             <img onClick={nextImg} className={`${styles.arrow} ${styles.right}`} src={arrowRight} alt="Right Arrow" id="right" />
         </div>

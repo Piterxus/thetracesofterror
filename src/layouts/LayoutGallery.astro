@@ -19,17 +19,25 @@ const { sectionTitle } = Astro.props;
     >
 
     <div class="fileUploadContainer">
-      <label for="uploader">Uploader (optional):</label>
-      <input type="text" name="uploaded" placeholder="email or username" />
-      <label for="type">Type:</label>
-      <select name="type" id="type">
-        <option value="cinema">Cinema</option>
-        <option value="tv">TV</option>
-        <option value="comic">Comic</option>
-        <option value="others">Others</option>
-      </select>
-      <label for="file-upload" class="custom-file-upload"> Upload Image </label>
-      <input id="file-upload" type="file" />
+      <div class="imgForm">
+        <label for="uploader">Uploader: </label>
+        <input type="text" name="uploaded" placeholder="email or username (optional)" />
+      </div>
+      <div class="imgForm">
+        <label for="type">Type:</label>
+        <select name="type" id="type">
+          <option value="cinema">Cinema</option>
+          <option value="tv">TV</option>
+          <option value="comic">Comic</option>
+          <option value="others">Others</option>
+        </select>
+      </div>
+      <div class="imgForm">
+        <label for="file-upload" class="custom-file-upload">
+          Upload Image
+        </label>
+        <input id="file-upload" type="file" />
+      </div>
       <button class="custom-file-upload" id="close">CLOSE</button>
     </div>
   </div>
@@ -117,6 +125,7 @@ const { sectionTitle } = Astro.props;
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
+    width: 90vw;
   }
   #file-upload {
     display: none;
@@ -136,6 +145,22 @@ const { sectionTitle } = Astro.props;
   }
   .custom-file-upload:hover {
     background-color: #3a3d44;
+  }
+
+  .imgForm {
+    margin: 5px;
+  }
+  label,
+  input,
+  select {
+    padding: 0.5rem;
+    font-size: 1rem;
+    font-family: "Fright";
+    color: white;
+    border-radius: 5px;
+  }
+  select {
+    color: black;
   }
   @media (max-width: 480px) {
     .fileUploadContainer {

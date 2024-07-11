@@ -1,9 +1,11 @@
 ---
 import Layout from "./Layout.astro";
 import Imgs from "../components/Imgs";
+
 interface Props {
   sectionTitle: string;
 }
+
 const { sectionTitle } = Astro.props;
 ---
 
@@ -20,8 +22,12 @@ const { sectionTitle } = Astro.props;
 
     <div class="fileUploadContainer">
       <div class="imgForm">
-        <label for="uploader">Uploader: </label>
-        <input type="text" name="uploaded" placeholder="email or username (optional)" />
+        <label for="uploader">Uploader:</label>
+        <input
+          type="text"
+          name="uploaded"
+          placeholder="email or username (optional)"
+        />
       </div>
       <div class="imgForm">
         <label for="type">Type:</label>
@@ -33,45 +39,13 @@ const { sectionTitle } = Astro.props;
         </select>
       </div>
       <div class="imgForm">
-        <label for="file-upload" class="custom-file-upload">
-          Upload Image
-        </label>
+        <label for="file-upload" class="custom-file-upload">Upload Image</label>
         <input id="file-upload" type="file" />
       </div>
       <button class="custom-file-upload" id="close">CLOSE</button>
     </div>
   </div>
 </Layout>
-<script>
-  let fileUp = document.getElementById("fileUp");
-  let close = document.getElementById("close");
-
-  if (fileUp) {
-    fileUp.addEventListener("click", () => {
-      let fileUploadContainer = document.querySelector(
-        ".fileUploadContainer"
-      ) as HTMLElement;
-      if (fileUploadContainer) {
-        fileUp.style.display = "none";
-        fileUploadContainer.style.display = "flex";
-      }
-    });
-  }
-
-  if (close) {
-    close.addEventListener("click", () => {
-      let fileUploadContainer = document.querySelector(
-        ".fileUploadContainer"
-      ) as HTMLElement;
-      if (fileUploadContainer) {
-        if (fileUp) {
-          fileUp.style.display = "block";
-        }
-        fileUploadContainer.style.display = "none";
-      }
-    });
-  }
-</script>
 <style>
   @font-face {
     font-family: "Fright";
@@ -159,7 +133,8 @@ const { sectionTitle } = Astro.props;
     color: white;
     border-radius: 5px;
   }
-  select {
+
+  input, select {
     color: black;
   }
   @media (max-width: 480px) {

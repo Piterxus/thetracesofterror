@@ -7,7 +7,7 @@ const arrowRight = "/imgs/arrow-right.svg";
 export default function Imgs() {
     const [imgs, setImgs] = useState<string[]>([]);
     const [currentImg, setCurrentImg] = useState<number>(0);
-    const [uploadedImg, setUploadedImg] = useState<string>("");
+    const [uploadedImgs, setUploadedImgs] = useState<string[]>([]);
     let touchStartX: number = 0;
     let touchEndX: number = 0;
 
@@ -21,10 +21,8 @@ export default function Imgs() {
             const rawPath = window.location.pathname;
             const cleanPath = rawPath.replace(/^\/|\/$/g, '');
             const filteredData = data.filter((img: any) => img.type === cleanPath);
-            setUploadedImg(filteredData.map((img: any) => img.uploaded));
             setImgs(filteredData.map((img: any) => img.path));
-
-            console.log("Images fetched:", uploadedImg, imgs);
+            setUploadedImgs(filteredData.map((img: any) => img.uploaded));
         } catch (error) {
             console.error("Error fetching images:", error);
         }
@@ -40,9 +38,11 @@ export default function Imgs() {
         document.addEventListener('imageUploaded', handleImageUploaded);
 
         const fileUpload = document.getElementById('file-upload') as HTMLInputElement | null;
+        const uploaderInput = document.querySelector('input[name="uploaded"]') as HTMLInputElement | null;
+        const typeSelect = document.getElementById('type') as HTMLSelectElement | null;
 
         if (fileUpload) {
-            fileUpload.addEventListener("change", async (e) => {
+            fileUpload.addEventListener("change", async () => {
                 if (!fileUpload.files || fileUpload.files.length === 0) {
                     alert("Please select a file to upload.");
                     return;
@@ -57,6 +57,12 @@ export default function Imgs() {
 
                 const formData = new FormData();
                 formData.append("image", file);
+                if (uploaderInput) {
+                    formData.append("uploaded", uploaderInput.value);
+                }
+                if (typeSelect) {
+                    formData.append("type", typeSelect.value);
+                }
 
                 try {
                     const response = await fetch(import.meta.env.PUBLIC_IMAGES_API_URL, {
@@ -69,6 +75,7 @@ export default function Imgs() {
                     if (response.ok) {
                         alert("Image uploaded successfully: " + result.path);
                         document.dispatchEvent(new CustomEvent('imageUploaded'));
+                        window.location.reload();
                     } else {
                         alert("Error uploading image: " + result.error);
                     }
@@ -127,7 +134,6 @@ export default function Imgs() {
 
     return (
         <div className={styles.imageGalleryContainer}>
-          
             <img onClick={prevImg} className={`${styles.arrow} ${styles.left}`} src={arrowLeft} alt="Left Arrow" id="left" />
             <div className={styles.imageGallery}>
                 {imgs.length > 0 && (
@@ -139,7 +145,9 @@ export default function Imgs() {
                         alt={`Image ${currentImg}`}
                     />
                 )}
-                {imgs.length > 0 && (<p className={styles.uploaded}>Uploaded by: {uploadedImg[currentImg] || "Anonymous"}</p>)}
+                {uploadedImgs.length > 0 && (
+                    <p className={styles.uploaded}>Uploaded by: {uploadedImgs[currentImg] || "Anonymous"}</p>
+                )}
             </div>
             <img onClick={nextImg} className={`${styles.arrow} ${styles.right}`} src={arrowRight} alt="Right Arrow" id="right" />
         </div>

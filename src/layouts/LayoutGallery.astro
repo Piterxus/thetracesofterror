@@ -41,8 +41,8 @@ const { sectionTitle } = Astro.props;
       <div class="imgForm">
         <label for="file-upload" class="custom-file-upload">Upload Image</label>
         <input id="file-upload" type="file" />
+        <button class="custom-file-upload" id="close">CLOSE</button>
       </div>
-      <button class="custom-file-upload" id="close">CLOSE</button>
     </div>
   </div>
 </Layout>
@@ -93,13 +93,13 @@ const { sectionTitle } = Astro.props;
     /* display: flex; */
     display: none;
     justify-content: center;
-    align-items: center;
+    /*  align-items: center; */
     margin-top: 1rem;
     position: absolute;
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
-    width: 90vw;
+    width: 100vw;
   }
   #file-upload {
     display: none;
@@ -116,6 +116,7 @@ const { sectionTitle } = Astro.props;
     font-family: "Fright";
     -webkit-text-stroke-width: 0.5px;
     -webkit-text-stroke-color: black;
+    margin: auto 1rem;
   }
   .custom-file-upload:hover {
     background-color: #3a3d44;
@@ -123,29 +124,42 @@ const { sectionTitle } = Astro.props;
 
   .imgForm {
     margin: 5px;
+    display: flex;
   }
-  label,
+
+  label {
+    display: inline-block;
+    width: 80px;
+    color: white;
+    font-family: "Fright";
+  }
   input,
   select {
     padding: 0.5rem;
     font-size: 1rem;
     font-family: "Fright";
-    color: white;
+    color: black; /* Ajuste para el color del texto */
     border-radius: 5px;
+    flex: 1; /* Expande el input/select para llenar el espacio restante */
   }
 
-  input, select {
-    color: black;
+  #close {
+    width: 140px;
   }
   @media (max-width: 480px) {
     .fileUploadContainer {
       position: static;
       transform: none;
-      margin-top: 1rem;
+      margin-top: 5rem;
+      flex-direction: column;
     }
     .custom-file-upload {
       width: 80%;
       text-align: center;
+    }
+    input,
+    select {
+      width: 80%;
     }
   }
 </style>

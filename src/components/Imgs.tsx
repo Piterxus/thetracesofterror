@@ -8,6 +8,7 @@ export default function Imgs() {
     const [imgs, setImgs] = useState<string[]>([]);
     const [currentImg, setCurrentImg] = useState<number>(0);
     const [uploadedImgs, setUploadedImgs] = useState<string[]>([]);
+    const [fileUploadVisible, setFileUploadVisible] = useState<boolean>(false);
     let touchStartX: number = 0;
     let touchEndX: number = 0;
 
@@ -121,6 +122,48 @@ export default function Imgs() {
             document.removeEventListener('touchstart', handleTouchStart, false);
             document.removeEventListener('touchmove', handleTouchMove, false);
             document.removeEventListener('touchend', handleTouchEnd, false);
+        };
+    }, []);
+
+    useEffect(() => {
+        const fileUp = document.getElementById("fileUp");
+        const close = document.getElementById("close");
+
+        const handleFileUpClick = () => {
+            const fileUploadContainer = document.querySelector(".fileUploadContainer") as HTMLElement;
+            if (fileUploadContainer) {
+                if (fileUp) {
+                    fileUp.style.display = "none";
+                }
+                fileUploadContainer.style.display = "flex";
+            }
+        };
+
+        const handleCloseClick = () => {
+            const fileUploadContainer = document.querySelector(".fileUploadContainer") as HTMLElement;
+            if (fileUploadContainer) {
+                if (fileUp) {
+                    fileUp.style.display = "block";
+                }
+                fileUploadContainer.style.display = "none";
+            }
+        };
+
+        if (fileUp) {
+            fileUp.addEventListener("click", handleFileUpClick);
+        }
+
+        if (close) {
+            close.addEventListener("click", handleCloseClick);
+        }
+
+        return () => {
+            if (fileUp) {
+                fileUp.removeEventListener("click", handleFileUpClick);
+            }
+            if (close) {
+                close.removeEventListener("click", handleCloseClick);
+            }
         };
     }, []);
 

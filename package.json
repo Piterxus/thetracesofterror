@@ -12,8 +12,10 @@
   "dependencies": {
     "@astrojs/check": "^0.7.0",
     "@astrojs/preact": "^3.5.0",
+    "@nanostores/preact": "^0.5.1",
     "astro": "^4.10.3",
     "astro-imagetools": "^0.9.0",
+    "nanostores": "^0.10.3",
     "preact": "^10.22.0",
     "typescript": "^5.4.5"
   }

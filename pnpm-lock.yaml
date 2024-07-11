@@ -14,12 +14,18 @@ importers:
       '@astrojs/preact':
         specifier: ^3.5.0
         version: 3.5.0(@babel/core@7.24.7)(preact@10.22.0)(vite@5.3.1)
+      '@nanostores/preact':
+        specifier: ^0.5.1
+        version: 0.5.1(nanostores@0.10.3)(preact@10.22.0)
       astro:
         specifier: ^4.10.3
         version: 4.10.3(typescript@5.4.5)
       astro-imagetools:
         specifier: ^0.9.0
         version: 0.9.0(astro@4.10.3(typescript@5.4.5))
+      nanostores:
+        specifier: ^0.10.3
+        version: 0.10.3
       preact:
         specifier: ^10.22.0
         version: 10.22.0
@@ -654,6 +660,13 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
+
+  '@nanostores/preact@0.5.1':
+    resolution: {integrity: sha512-kofyeDwzM3TrOd37ay+Xxgk3Cn6jih23dxELc7Mr9IJV55jmWATfNP9b7O/awwCL7CE5z5PfzFnNk/W+tMaWGw==}
+    engines: {node: ^18.0.0 || >=20.0.0}
+    peerDependencies:
+      nanostores: ^0.9.0 || ^0.10.0
+      preact: '>=10.0.0'
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -1740,6 +1753,10 @@ packages:
     resolution: {integrity: sha512-eSRppjcPIatRIMC1U6UngP8XFcz8MQWGQdt1MTBQ7NaAmvXDfvNxbvWV3x2y6CdEUciCSsDHDQZbhYaB8QEo2g==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
+
+  nanostores@0.10.3:
+    resolution: {integrity: sha512-Nii8O1XqmawqSCf9o2aWqVxhKRN01+iue9/VEd1TiJCr9VT5XxgPFbF1Edl1XN6pwJcZRsl8Ki+z01yb/T/C2g==}
+    engines: {node: ^18.0.0 || >=20.0.0}
 
   napi-build-utils@1.0.2:
     resolution: {integrity: sha512-ONmRUqK7zj7DWX0D9ADe03wbwOBZxNAfF20PlGfCWQcD3+/MakShIHrMqx9YwPTfxDdF1zLeL+RGZiR9kGMLdg==}
@@ -3231,6 +3248,11 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.4.15
 
+  '@nanostores/preact@0.5.1(nanostores@0.10.3)(preact@10.22.0)':
+    dependencies:
+      nanostores: 0.10.3
+      preact: 10.22.0
+
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
       '@nodelib/fs.stat': 2.0.5
@@ -4604,6 +4626,8 @@ snapshots:
   muggle-string@0.4.1: {}
 
   nanoid@3.3.7: {}
+
+  nanostores@0.10.3: {}
 
   napi-build-utils@1.0.2:
     optional: true

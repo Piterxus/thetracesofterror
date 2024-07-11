@@ -7,6 +7,7 @@ const arrowRight = "/imgs/arrow-right.svg";
 export default function Imgs() {
     const [imgs, setImgs] = useState<string[]>([]);
     const [currentImg, setCurrentImg] = useState<number>(0);
+    const [uploadedImg, setUploadedImg] = useState<string>("");
     let touchStartX: number = 0;
     let touchEndX: number = 0;
 
@@ -20,7 +21,10 @@ export default function Imgs() {
             const rawPath = window.location.pathname;
             const cleanPath = rawPath.replace(/^\/|\/$/g, '');
             const filteredData = data.filter((img: any) => img.type === cleanPath);
+            setUploadedImg(filteredData.map((img: any) => img.uploaded));
             setImgs(filteredData.map((img: any) => img.path));
+
+            console.log("Images fetched:", uploadedImg, imgs);
         } catch (error) {
             console.error("Error fetching images:", error);
         }
@@ -123,6 +127,7 @@ export default function Imgs() {
 
     return (
         <div className={styles.imageGalleryContainer}>
+          
             <img onClick={prevImg} className={`${styles.arrow} ${styles.left}`} src={arrowLeft} alt="Left Arrow" id="left" />
             <div className={styles.imageGallery}>
                 {imgs.length > 0 && (
@@ -134,6 +139,7 @@ export default function Imgs() {
                         alt={`Image ${currentImg}`}
                     />
                 )}
+                {imgs.length > 0 && ( <p className={styles.uploaded}>Uploaded by: {uploadedImg[currentImg]}</p>)}
             </div>
             <img onClick={nextImg} className={`${styles.arrow} ${styles.right}`} src={arrowRight} alt="Right Arrow" id="right" />
         </div>

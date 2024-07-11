@@ -139,7 +139,7 @@ export default function Imgs() {
                         alt={`Image ${currentImg}`}
                     />
                 )}
-                {imgs.length > 0 && ( <p className={styles.uploaded}>Uploaded by: {uploadedImg[currentImg]}</p>)}
+                {imgs.length > 0 && (<p className={styles.uploaded}>Uploaded by: {uploadedImg[currentImg] || "Anonymous"}</p>)}
             </div>
             <img onClick={nextImg} className={`${styles.arrow} ${styles.right}`} src={arrowRight} alt="Right Arrow" id="right" />
         </div>

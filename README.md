@@ -25,7 +25,7 @@ As a huge fan of horror, I wanted to incorporate my passion into this project wh
 - **Image Upload**: Users can upload images to the gallery.
 - **Categories**: Organize images by type.
 - **Responsive Design**: Adaptable design for different screen sizes.
-- **Animations**: Small animations to enhance the user experience.
+
 
 ## 🔮 Future Improvements
 

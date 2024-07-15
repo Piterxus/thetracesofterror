@@ -45,4 +45,8 @@ If you want to know more about the project or have any questions, you can contac
 
 - **Email**: piterxusdev@gmail.com
 - **LinkedIn**: [Pedro Sánchez Lancharro](https://www.linkedin.com/in/pedro-s%C3%A1nchez-lancharro-007136203/)
-- **Twitter**: [@Piterxus_Dev](https://twitter.com/Piterxus_Dev)
+- **X**: [@Piterxus_Dev](https://x.com/Piterxus_Dev)
+
+## 📄 License
+
+This project is licensed under the MIT License. See the [LICENSE.md](./LICENSE.md) file for details.

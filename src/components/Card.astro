@@ -50,9 +50,7 @@ const backgroundUrl = `url(/${backgroundImg})`;
   }
   .img-card:is(:hover, :focus-within) {
     background-position: 5px 5px;
-  
   }
-
 
   .card-text {
     font-size: 1.5rem;
@@ -63,8 +61,8 @@ const backgroundUrl = `url(/${backgroundImg})`;
       font-size: 2.5rem;
     }
     .img-card {
-      width: 70px;
-      height: 70px;
+      width: 150px;
+      height: 150px;
     }
     .card-text {
       font-size: 1rem;
@@ -75,13 +73,20 @@ const backgroundUrl = `url(/${backgroundImg})`;
       gap: 1rem;
     } */
   }
-  @media (max-width: 480px) {
+  @media (max-width: 400px),
+    (width: 414px) and (height: 896px),
+    (width: 430px) and (height: 932px),
+    (width: 412px) and (height: 915px),
+    (width: 540px) and (height: 720px),
+    (width: 344px) and (height: 882px),
+    (width: 412px) and (height: 914px) {
     h1 {
       font-size: 2rem;
     }
     .img-card {
       width: 100px;
       height: 100px;
+      background-size: 70px;
     }
   }
 </style>

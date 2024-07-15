@@ -133,30 +133,20 @@ const others = "./imgs/ghost.svg";
     color: rgb(var(--accent-light));
   }
   .link-card-grid {
-    /* display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-    gap: 4rem; */
     display: flex;
     justify-content: space-between;
-    /* padding: 10; */
-    /* padding-left: 10%; */
   }
   @media (max-width: 768px) {
     h1 {
       font-size: 2.5rem;
     }
-    /* .link-card-grid {
-      flex-direction: column;
-      gap: 1rem;
-    } */
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: 480px), (width: 540px) and (height: 720px) {
     .instructions {
-      display: none;
+      font-size: small;
     }
     .link-card-grid {
-      flex-direction: column;
       gap: 1rem;
       align-items: center;
     }

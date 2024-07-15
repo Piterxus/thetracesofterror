@@ -77,7 +77,7 @@ export default function Imgs() {
                     const result = await response.json();
 
                     if (response.ok) {
-                        setPopupMessage("Image uploaded successfully: " + result.path);
+                        setPopupMessage("Image uploaded successfully!");
                         document.dispatchEvent(new CustomEvent('imageUploaded'));
 
                     } else {

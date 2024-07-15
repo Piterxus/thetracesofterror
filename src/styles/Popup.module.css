@@ -1,24 +1,45 @@
-.popupOverlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
+  @font-face {
+      font-family: "Fright";
+      src: url(../fright_maiden/Fright\ Maiden\ Demo.ttf) format("truetype");
+  }
 
-.popup {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-}
+  .popupOverlay {
+      font-family: "Fright";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+  }
 
-.popup button {
-    margin-top: 10px;
-    padding: 5px 10px;
-}
+  .popup {
+      background: #f98459;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 0 35px #0FF;
+      border: 2px solid rgba(0, 0, 0, 0.7);
+      color: rgba(0, 0, 0, 0.7);
+  }
+
+  .popup button {
+      font-family: "Fright";
+      margin-top: 10px;
+      padding: 5px 10px;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      background-color: #23262d;
+      color: white;
+      border: 1px solid white;
+      border-radius: 5px;
+      text-align: center;
+      font-family: "Fright";
+      -webkit-text-stroke-width: 0.5px;
+      -webkit-text-stroke-color: black;
+      margin: auto 1rem;
+  }

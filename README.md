@@ -1,10 +1,10 @@
-# 🧛‍♂️ Terror Gallery 🧟‍♀️
+# 🧛‍♂️ The Traces of Terror 🧟‍♀️
 
-Welcome to **Terror Gallery**, my first web development project. This project showcases my passion for both development and the horror genre. 🎃
+Welcome to **The Traces of Terror**, my first web development project. This project showcases my passion for both development and the horror genre. 🎃
 
 ## 📖 About the Project
 
-Terror Gallery is an image gallery dedicated to the universe of horror. The idea is to upload images related to horror but originating from works whose original context is not horror. It’s about finding those creepy and spine-chilling moments in unexpected places.
+The Traces of Terror is an image gallery dedicated to the universe of horror. The idea is to upload images related to horror but originating from works whose original context is not horror. It’s about finding those creepy and spine-chilling moments in unexpected places.
 
 As a huge fan of horror, I wanted to incorporate my passion into this project while also showcasing my skills as a web developer.
 

@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'preact/hooks';
 import styles from '../styles/Imgs.module.css';
+import Popup from './Popup';
+
 
 const arrowLeft = "/imgs/arrow-left.svg";
 const arrowRight = "/imgs/arrow-right.svg";
@@ -8,7 +10,8 @@ export default function Imgs() {
     const [imgs, setImgs] = useState<string[]>([]);
     const [currentImg, setCurrentImg] = useState<number>(0);
     const [uploadedImgs, setUploadedImgs] = useState<string[]>([]);
-    const [fileUploadVisible, setFileUploadVisible] = useState<boolean>(false);
+    const [fileUploadVisible, setFileUploadVisible] = useState<boolean>(false); // Pending to use NanoStores
+    const [popupMessage, setPopupMessage] = useState<string | null>(null);
     let touchStartX: number = 0;
     let touchEndX: number = 0;
 
@@ -45,14 +48,14 @@ export default function Imgs() {
         if (fileUpload) {
             fileUpload.addEventListener("change", async () => {
                 if (!fileUpload.files || fileUpload.files.length === 0) {
-                    alert("Please select a file to upload.");
+                    setPopupMessage("Please select a file to upload.");
                     return;
                 }
 
                 const file = fileUpload.files[0];
                 const validImageTypes = ["image/jpeg", "image/png", "image/gif", "image/svg+xml", "image/webp"];
                 if (!validImageTypes.includes(file.type)) {
-                    alert("Only image files are allowed!");
+                    setPopupMessage("Only image files are allowed!");
                     return;
                 }
 
@@ -74,17 +77,17 @@ export default function Imgs() {
                     const result = await response.json();
 
                     if (response.ok) {
-                        alert("Image uploaded successfully: " + result.path);
+                        setPopupMessage("Image uploaded successfully: " + result.path);
                         document.dispatchEvent(new CustomEvent('imageUploaded'));
-                        window.location.reload();
+
                     } else {
-                        alert("Error uploading image: " + result.error);
+                        setPopupMessage("Error uploading image: " + result.error);
                     }
                 } catch (error) {
                     if (error instanceof Error) {
-                        alert("Error uploading image: " + error.message);
+                        setPopupMessage("Error uploading image: " + error.message);
                     } else {
-                        alert("Unexpected error uploading image");
+                        setPopupMessage("Unexpected error uploading image");
                     }
                 }
             });
@@ -193,6 +196,7 @@ export default function Imgs() {
                 )}
             </div>
             <img onClick={nextImg} className={`${styles.arrow} ${styles.right}`} src={arrowRight} alt="Right Arrow" id="right" />
+            <Popup message={popupMessage} onClose={() => setPopupMessage(null)} />
         </div>
     );
 }

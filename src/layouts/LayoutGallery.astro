@@ -13,13 +13,12 @@ const { sectionTitle } = Astro.props;
   <div class="gallery">
     <div class="galleryHeader">
       <h1>{sectionTitle}</h1>
-      <a href="/">BACK</a>
+      <a href="/" class="back-button">BACK</a>
     </div>
     <Imgs client:load />
     <button class="fileUpload custom-file-upload" id="fileUp"
       >UPLOAD IMAGE</button
     >
-
     <div class="fileUploadContainer">
       <div class="imgForm">
         <label for="uploader">Uploader:</label>
@@ -46,6 +45,7 @@ const { sectionTitle } = Astro.props;
     </div>
   </div>
 </Layout>
+
 <style>
   @font-face {
     font-family: "Fright";
@@ -79,6 +79,10 @@ const { sectionTitle } = Astro.props;
     text-align: center;
     padding: 1rem;
   }
+  .back-button {
+    position: relative;
+    display: inline-block;
+  }
   .fileUpload {
     display: flex;
     justify-content: center;
@@ -90,10 +94,8 @@ const { sectionTitle } = Astro.props;
     transform: translateX(-50%);
   }
   .fileUploadContainer {
-    /* display: flex; */
     display: none;
     justify-content: center;
-    /*  align-items: center; */
     margin-top: 1rem;
     position: absolute;
     bottom: 10px;
@@ -121,12 +123,10 @@ const { sectionTitle } = Astro.props;
   .custom-file-upload:hover {
     background-color: #3a3d44;
   }
-
   .imgForm {
-    margin: 5px;
+    margin: 10px;
     display: flex;
   }
-
   label {
     display: inline-block;
     width: 80px;
@@ -138,11 +138,10 @@ const { sectionTitle } = Astro.props;
     padding: 0.5rem;
     font-size: 1rem;
     font-family: "Fright";
-    color: black; /* Ajuste para el color del texto */
+    color: black;
     border-radius: 5px;
-    flex: 1; /* Expande el input/select para llenar el espacio restante */
+    flex: 1;
   }
-
   #close {
     width: 140px;
   }
@@ -161,5 +160,37 @@ const { sectionTitle } = Astro.props;
     select {
       width: 80%;
     }
+    .back-button::after {
+      content: "Tap on images to view them!";
+      display: block;
+      font-size: 0.8rem;
+      color: white;
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+  }
+  @media (max-width: 540px) {
+    .fileUploadContainer {
+      position: static;
+      transform: none;
+      margin-top: 5rem;
+      flex-direction: column;
+    }
+    .custom-file-upload {
+      width: 80%;
+      text-align: center;
+    }
+    input,
+    select {
+      width: 80%;
+    }
+    /* .back-button::after {
+      content: "Tap on images to view them!";
+      display: block;
+      font-size: 0.8rem;
+      color: white;
+      text-align: center;
+      margin-top: 0.5rem;
+    } */
   }
 </style>

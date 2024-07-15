@@ -1,54 +1,37 @@
-# Astro Starter Kit: Basics
+🧛‍♂️ Terror Gallery 🧟‍♀️
+Welcome to Terror Gallery, my first web development project. This project showcases my passion for both development and the horror genre. 🎃
 
-```sh
-npm create astro@latest -- --template basics
-```
+📖 About the Project
+Terror Gallery is an image gallery dedicated to the universe of horror. The idea is to upload images related to horror but originating from works whose original context is not horror. It’s about finding those creepy and spine-chilling moments in unexpected places.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+As a huge fan of horror, I wanted to incorporate my passion into this project while also showcasing my skills as a web developer.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+💻 Technologies Used
+Frontend
+Astro: A modern framework that enables building fast and optimized websites.
+Preact: A lightweight alternative to React that offers excellent performance.
+CSS Modules: For modular and maintainable styling.
+Backend
+Laravel: A PHP framework that facilitates building robust and scalable web applications.
+📸 Features
+Image Upload: Users can upload images to the gallery.
+Categories: Organize images by type.
+Responsive Design: Adaptable design for different screen sizes.
+Animations: Small animations to enhance
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+🔮 Future Improvements
+Authentication: Allow users to register and log in.
+Comments: Add a comments section for user interaction.
+Search: Implement a search system to quickly find images.
+Likes: Enable users to like images.
+Challenge Developers: Propose challenges for other developers to contribute and enhance the project.
 
-## 🚀 Project Structure
+🤝 Contributions
+Contributions are welcome! If you have ideas to improve the project, feel free to open an issue or submit a pull request.
 
-Inside of your Astro project, you'll see the following folders and files:
+📬 Contact
+If you want to know more about the project or have any questions, you can contact me at:
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Email: piterxusdev@gmail.com
+LinkedIn: https://www.linkedin.com/in/pedro-s%C3%A1nchez-lancharro-007136203/
+X: @Piterxus_Dev

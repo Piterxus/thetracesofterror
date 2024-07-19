@@ -131,19 +131,82 @@ const others = "./imgs/ghost.svg";
     display: flex;
     justify-content: space-between;
   }
-  @media (max-width: 768px) {
+  /* @media (max-width: 800px) {
     h1 {
       font-size: 2.5rem;
     }
+    .instructions {
+      font-size: x-large;
+    }
   }
 
-  @media (max-width: 400px), (width: 540px) and (height: 720px) {
+  @media (max-width: 500px), (width: 360px) and (height: 720px) {
     .instructions {
-      font-size: small;
+      font-size: xx-large;
     }
     .link-card-grid {
       gap: 1rem;
       align-items: center;
+    }
+  } */
+  @media (min-width: 300px) and (max-width: 500px) {
+    h1 {
+      font-size: 2.5rem;
+    }
+    .instructions {
+      font-size: 2rem;
+    }
+  }
+  @media (min-width: 300px) and (min-height: 800px) {
+    h1 {
+      font-size: 2.5rem;
+    }
+    .instructions {
+      font-size: 2.5rem;
+    }
+  }
+  @media (min-width: 500px) and (max-width: 900px) {
+    h1 {
+      font-size: 2.5rem;
+    }
+    .instructions {
+      font-size: 1.5rem;
+    }
+  }
+
+  /* @media (min-width:900px) and (max-width: 1280px) {
+    h1 {
+      font-size: 2.5rem;
+    }
+    .instructions {
+      font-size: 1.5rem;
+    }
+  } */
+  /* @media(min-width:1024px) and (min-height:600px) {
+    h1 {
+      font-size: 2.5rem;
+    }
+    .instructions {
+      font-size: 1rem;
+    }
+  } */
+  @media (min-width: 344px) and (min-height: 882px) {
+    h1 {
+      font-size: 2.5rem;
+    }
+    .instructions {
+      font-size: 2.5rem;
+    }
+  }
+  @media (min-width: 853px) and (min-height: 1280px),
+    (min-width: 912px) and (min-height: 1368px),
+    (min-width: 1200px) and (min-height: 800px),
+    (min-width: 1024px) and (min-height: 1366px) {
+    h1 {
+      font-size: 2.5rem;
+    }
+    .instructions {
+      font-size: 1.5rem;
     }
   }
 </style>

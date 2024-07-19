@@ -188,7 +188,7 @@ export default function Imgs() {
                         className={styles.galleryImage}
                         key={currentImg}
                         src={`${import.meta.env.PUBLIC_IMAGES_URL}${imgs[currentImg]}`}
-                        alt={`Image ${currentImg}`}
+                        alt="Horror context gallery"
                     />
                 )}
                 {uploadedImgs.length > 0 && (

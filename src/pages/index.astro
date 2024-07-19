@@ -96,9 +96,9 @@ const others = "./imgs/ghost.svg";
     z-index: -1;
   }
   h1 {
-    font-size: 4rem;
-    font-weight: 700;
-    line-height: 1;
+    /* font-size: 2rem; */
+    /* font-weight: 700; */
+    /* line-height: 1; */
     text-align: center;
     margin-bottom: 1em;
     -webkit-text-stroke-width: 0.5px;
@@ -112,7 +112,8 @@ const others = "./imgs/ghost.svg";
     background-position: 0%;
   }
   .instructions {
-    margin-bottom: 2rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
     border: 1px solid rgba(var(--accent-light), 25%);
     background: linear-gradient(
       rgba(var(--accent-dark), 66%),
@@ -120,15 +121,9 @@ const others = "./imgs/ghost.svg";
     );
     padding: 1.5rem;
     border-radius: 8px;
+    font-size: 1rem;
   }
-  .instructions code {
-    font-size: 0.8em;
-    font-weight: bold;
-    background: rgba(var(--accent-light), 12%);
-    color: rgb(var(--accent-light));
-    border-radius: 4px;
-    padding: 0.3em 0.4em;
-  }
+
   .instructions strong {
     color: rgb(var(--accent-light));
   }
@@ -142,7 +137,7 @@ const others = "./imgs/ghost.svg";
     }
   }
 
-  @media (max-width: 480px), (width: 540px) and (height: 720px) {
+  @media (max-width: 400px), (width: 540px) and (height: 720px) {
     .instructions {
       font-size: small;
     }

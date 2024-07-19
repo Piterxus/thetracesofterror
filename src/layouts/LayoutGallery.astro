@@ -40,7 +40,7 @@ const { sectionTitle } = Astro.props;
         </select>
       </div>
       <div class="imgForm imgFormLandScape">
-        <label for="file-upload" class="custom-file-upload">Upload Image</label>
+        <label for="file-upload" class="custom-file-upload labelFileUpload">Upload Image</label>
         <input id="file-upload" type="file" />
         <button class="custom-file-upload" id="close">CLOSE</button>
       </div>
@@ -111,6 +111,7 @@ const { sectionTitle } = Astro.props;
     left: 50%;
     transform: translateX(-50%);
     width: 100vw;
+    margin-bottom: 10px;
   }
   #file-upload {
     display: none;
@@ -151,7 +152,12 @@ const { sectionTitle } = Astro.props;
     border-radius: 5px;
     flex: 1;
   }
+  .labelFileUpload {
+    margin-top: 20px;
+   height: 15px;
+  }
   #close {
+    margin-top: 20px;
     width: 140px;
   }
   @media (max-width: 480px) {

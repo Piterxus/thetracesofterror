@@ -187,6 +187,33 @@ const { sectionTitle } = Astro.props;
       margin-top: 1rem;
     }
   }
+  @media (orientation: landscape) {
+    .fileUpload {
+      bottom: 20px;
+    }
+    .fileUploadContainer {
+      top: 50px;
+      position: relative;
+    }
+    .imgForm {
+      flex-direction: column;
+    }
+    .imgFormLandScape {
+      flex-direction: row;
+    }
+    label,
+    input,
+    select {
+      font-size: x-small;
+      height: 50%;
+      margin-bottom: 10px;
+    }
+    #fileUp {
+      position: relative;
+      width: 15vw;
+      top:30px;
+    }
+  }
   /*
   @media (max-width: 540px) {
     .fileUploadContainer {

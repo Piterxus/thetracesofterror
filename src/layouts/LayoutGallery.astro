@@ -78,7 +78,7 @@ const { sectionTitle } = Astro.props;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    bottom:5vh;
+    bottom: 5vh;
   }
   .galleryHeader {
     text-align: center;
@@ -220,41 +220,41 @@ const { sectionTitle } = Astro.props;
       bottom: 40px;
     }
   } */
-   /* Reglas para dispositivos móviles en orientación landscape y alta densidad de píxeles */
-@media (max-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2), 
-       (max-width: 1024px) and (orientation: landscape) and (min-resolution: 192dpi) {
-  h1 {
-    display: none;
+  /* Reglas para dispositivos móviles en orientación landscape y alta densidad de píxeles */
+  @media (max-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2),
+    (max-width: 1024px) and (orientation: landscape) and (min-resolution: 192dpi) {
+    h1 {
+      display: none;
+    }
+    .galleryHeader {
+      margin-top: 5px;
+    }
+    .fileUpload {
+      bottom: 20px;
+    }
+    .fileUploadContainer {
+      bottom: 30px;
+      position: relative;
+    }
+    .imgForm {
+      flex-direction: column;
+    }
+    .imgFormLandScape {
+      flex-direction: row;
+    }
+    label,
+    input,
+    select {
+      font-size: x-small;
+      height: 50%;
+      margin-bottom: 10px;
+    }
+    #fileUp {
+      position: relative;
+      width: 15vw;
+      bottom: 40px;
+    }
   }
-  .galleryHeader {
-    margin-top: 5px;
-  }
-  .fileUpload {
-    bottom: 20px;
-  }
-  .fileUploadContainer {
-    bottom: 30px;
-    position: relative;
-  }
-  .imgForm {
-    flex-direction: column;
-  }
-  .imgFormLandScape {
-    flex-direction: row;
-  }
-  label,
-  input,
-  select {
-    font-size: x-small;
-    height: 50%;
-    margin-bottom: 10px;
-  }
-  #fileUp {
-    position: relative;
-    width: 15vw;
-    bottom: 40px;
-  }
-}
 
   /*
   @media (max-width: 540px) {

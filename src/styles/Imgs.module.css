@@ -90,8 +90,8 @@
 
   @media (orientation: landscape) {
       .uploaded {
-          /* font-size: 0.9rem; */
-          display: none;
+          font-size: 0.9rem;
+          /* display: none; */
          
       }
   }

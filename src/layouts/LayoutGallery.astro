@@ -28,6 +28,7 @@ const { sectionTitle } = Astro.props;
           type="text"
           name="uploaded"
           placeholder="email or username (optional)"
+          maxlength="35"
         />
       </div>
       <div class="imgForm">
@@ -41,7 +42,7 @@ const { sectionTitle } = Astro.props;
       </div>
       <div class="imgForm">
         <label for="description">Description: </label>
-        <input type="text" name="description" placeholder="The image belongs to (optional)" id="description">
+        <input type="text" name="description" placeholder="The image belongs to (optional)" id="description" maxlength="40">
       </div>
       <div class="imgForm imgFormLandScape">
         <label for="file-upload" class="custom-file-upload labelFileUpload"

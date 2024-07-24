@@ -173,14 +173,19 @@ const { sectionTitle } = Astro.props;
       transform: none;
       margin-top: 5rem;
       flex-direction: column;
+      width: 95%;
     }
     .custom-file-upload {
       width: 80%;
       text-align: center;
     }
+    label{
+      font-size: small;
+    }
     input,
     select {
-      width: 80%;
+      width: 100%;
+      font-size: small;
     }
     .back-button::after {
       content: "Tap on images to view them!";

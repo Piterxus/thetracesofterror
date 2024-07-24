@@ -39,6 +39,10 @@ const { sectionTitle } = Astro.props;
           <option value="others">Others</option>
         </select>
       </div>
+      <div class="imgForm">
+        <label for="description">Description: </label>
+        <input type="text" name="description" placeholder="The image belongs to (optional)" id="description">
+      </div>
       <div class="imgForm imgFormLandScape">
         <label for="file-upload" class="custom-file-upload labelFileUpload"
           >Upload Image</label
@@ -105,7 +109,7 @@ const { sectionTitle } = Astro.props;
     justify-content: center;
     margin-top: 1rem;
     position: absolute;
-    bottom: 10px;
+    bottom: 1px;
     left: 50%;
     transform: translateX(-50%);
     width: 100vw;
@@ -137,7 +141,7 @@ const { sectionTitle } = Astro.props;
   }
   label {
     display: inline-block;
-    width: 80px;
+    width: 90px;
     color: white;
     font-family: "Fright";
   }

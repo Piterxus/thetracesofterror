@@ -47,6 +47,7 @@ export default function Imgs() {
         const fileUpload = document.getElementById('file-upload') as HTMLInputElement | null;
         const uploaderInput = document.querySelector('input[name="uploaded"]') as HTMLInputElement | null;
         const typeSelect = document.getElementById('type') as HTMLSelectElement | null;
+        const description = document.getElementById('description') as HTMLInputElement | null;
 
         if (fileUpload) {
             fileUpload.addEventListener("change", async () => {
@@ -69,6 +70,10 @@ export default function Imgs() {
                 }
                 if (typeSelect) {
                     formData.append("type", typeSelect.value);
+                }
+
+                if (description) {
+                    formData.append("description", description.value);
                 }
 
                 try {
@@ -197,7 +202,7 @@ export default function Imgs() {
                 {uploadedImgs.length > 0 && (
                     <p className={styles.uploaded}>Uploaded by: {uploadedImgs[currentImg] || "Anonymous"}</p>
                 )}
-                <p className={styles.uploaded}>The image belongs to: {description[currentImg]}</p>
+                {description.length > 0 && (<p className={styles.uploaded}>The image belongs to: {description[currentImg] || "Unknown"}</p>)}
             </div>
             <img onClick={nextImg} className={`${styles.arrow} ${styles.right}`} src={arrowRight} alt="Right Arrow" id="right" />
             <Popup message={popupMessage} onClose={() => setPopupMessage(null)} />

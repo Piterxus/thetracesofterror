@@ -26,6 +26,26 @@ As a huge fan of horror, I wanted to incorporate my passion into this project wh
 - **Categories**: Organize images by type.
 - **Responsive Design**: Adaptable design for different screen sizes.
 
+## 📦 Database Setup
+
+Ensure you have a database named images with the following fields:
+
+- **id**: Primary key (integer, auto-incrementing)
+- **path**: String (URL or path to the image)
+- **description**: String (optional, a brief description of the image)
+- **title**: String (optional, the title of the image)
+- **type**: String (type or category of the image, e.g., cinema, tv, comic, etc.)
+- **uploaded**: String (the uploader's identifier, e.g., email or username)
+
+### Laravel Specific Fields
+
+If you are using Laravel, make sure to include the following additional fields in the `images` table:
+
+- **timestamps**: Laravel default fields for tracking created and updated timestamps.
+- **softDeletes**: Laravel default field for implementing soft deletes (optional, used to mark records as deleted without actually removing them from the database).
+
+The `timestamps` and `softDeletes` fields will be automatically managed by Laravel, so you don’t need to manually handle them in your application logic.
+
 
 ## 🔮 Future Improvements
 

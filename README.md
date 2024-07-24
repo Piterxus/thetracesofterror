@@ -46,6 +46,83 @@ If you are using Laravel, make sure to include the following additional fields i
 
 The `timestamps` and `softDeletes` fields will be automatically managed by Laravel, so you don’t need to manually handle them in your application logic.
 
+## 🚀 Running the Project Locally
+
+To run this project locally, follow these steps:
+
+1. Clone the frontend repository:
+    ```bash
+    git clone https://github.com/Piterxus/thetracesofterror
+    cd <frontend-repo-folder>
+    ```
+
+2. Install frontend dependencies using `pnpm` (recommended), `npm`, or `yarn`:
+    ```bash
+    pnpm install
+    # or
+    npm install
+    # or
+    yarn install
+    ```
+
+3. Start the frontend development server:
+    ```bash
+    pnpm run dev
+    # or
+    npm run dev
+    # or
+    yarn dev
+    ```
+
+4. Clone the backend repository:
+    ```bash
+    git clone https://github.com/Piterxus/thetracesofterrorback
+    cd <backend-repo-folder>
+    ```
+
+5. Install backend dependencies:
+    ```bash
+    composer install
+    ```
+
+6. Set up the backend environment:
+    - Copy the `.env.example` file to `.env`:
+        ```bash
+        cp .env.example .env
+        ```
+    - Update the `.env` file with your database credentials and other necessary configurations.
+
+7. **Important:** If you encounter an `SQLSTATE[HY000] [2002] Connection refused` error, update the session driver in the `.env` file:
+    ```bash
+    SESSION_DRIVER=file
+    ```
+
+8. Generate the application key:
+    ```bash
+    php artisan key:generate
+    ```
+
+9. Run the database migrations:
+    ```bash
+    php artisan migrate
+    ```
+
+10. Create a symbolic link for storage:
+    ```bash
+    php artisan storage:link
+    ```
+
+11. Ensure the `storage` and `bootstrap/cache` directories are writable:
+    ```bash
+    chmod -R 775 storage
+    chmod -R 775 bootstrap/cache
+    ```
+
+12. Start the backend development server:
+    ```bash
+    php artisan serve
+    ```
+
 
 ## 🔮 Future Improvements
 

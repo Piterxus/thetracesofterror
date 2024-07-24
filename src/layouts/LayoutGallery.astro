@@ -99,10 +99,6 @@ const { sectionTitle } = Astro.props;
     align-items: center;
     margin-top: 1rem;
     width: 10vw;
-    /* position: absolute; */
-    /* bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%); */
   }
   .fileUploadContainer {
     display: none;
@@ -164,8 +160,7 @@ const { sectionTitle } = Astro.props;
     width: 140px;
   }
   @media (max-width: 480px) {
-    h1{
-      /* display: none; */
+    h1 {
       font-size: x-large;
     }
     .fileUploadContainer {
@@ -179,7 +174,7 @@ const { sectionTitle } = Astro.props;
       width: 80%;
       text-align: center;
     }
-    label{
+    label {
       font-size: small;
     }
     input,
@@ -196,39 +191,7 @@ const { sectionTitle } = Astro.props;
       margin-top: 1rem;
     }
   }
-  /* @media (orientation: landscape) {
-    h1{
-      display: none;
-    }
-    .galleryHeader{
-      margin-top: 5px;
-    }
-    .fileUpload {
-      bottom: 20px;
-    }
-    .fileUploadContainer {
-      bottom: 30px;
-      position: relative;
-    }
-    .imgForm {
-      flex-direction: column;
-    }
-    .imgFormLandScape {
-      flex-direction: row;
-    }
-    label,
-    input,
-    select {
-      font-size: x-small;
-      height: 50%;
-      margin-bottom: 10px;
-    }
-    #fileUp {
-      position: relative;
-      width: 15vw;
-      bottom: 40px;
-    }
-  } */
+
   /* Reglas para dispositivos móviles en orientación landscape y alta densidad de píxeles */
   @media (max-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2),
     (max-width: 1024px) and (orientation: landscape) and (min-resolution: 192dpi) {
@@ -270,56 +233,5 @@ const { sectionTitle } = Astro.props;
       height: 50%;
       margin-bottom: 10px;
     }
-    /* #fileUp {
-      position: relative;
-      width: 15vw;
-      bottom: 40px;
-    } */
   }
-
-  /*
-  @media (max-width: 540px) {
-    .fileUploadContainer {
-      position: static;
-      transform: none;
-      margin-top: 5rem;
-      flex-direction: column;
-    }
-    .custom-file-upload {
-      width: 80%;
-      text-align: center;
-    }
-    input,
-    select {
-      width: 80%;
-    }
-
-  }
-  @media (orientation: landscape) {
-
-    .fileUpload {
-      bottom: 20px;
-    }
-    .fileUploadContainer {
-      top: 50px;
-      position: relative;
-    }
-
-    .imgForm {
-      flex-direction: column;
-    }
-    .imgFormLandScape {
-      flex-direction: row;
-    }
-
-
-
-    label,input, select {
-      font-size: x-small;
-      height: 50%;
-      margin-bottom: 10px;
-    }
-
- 
-  } */
 </style>

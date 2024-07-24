@@ -90,6 +90,9 @@
 
   @media (max-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2),
   (max-width: 1024px) and (orientation: landscape) and (min-resolution: 192dpi) {
+    .arrow {
+            display: none;
+        }
       .uploaded {
           /* font-size: 0.9rem; */
           display: none;

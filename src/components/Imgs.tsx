@@ -3,13 +3,15 @@ import styles from '../styles/Imgs.module.css';
 import Popup from './Popup';
 
 
+
 const arrowLeft = "/imgs/arrow-left.svg";
 const arrowRight = "/imgs/arrow-right.svg";
 
 export default function Imgs() {
     const [imgs, setImgs] = useState<string[]>([]);
-    const [currentImg, setCurrentImg] = useState<number>(0);
     const [uploadedImgs, setUploadedImgs] = useState<string[]>([]);
+    const [description, setDescription] = useState<string>("");
+    const [currentImg, setCurrentImg] = useState<number>(0);
     const [fileUploadVisible, setFileUploadVisible] = useState<boolean>(false); // Pending to use NanoStores
     const [popupMessage, setPopupMessage] = useState<string | null>(null);
     let touchStartX: number = 0;
@@ -27,6 +29,7 @@ export default function Imgs() {
             const filteredData = data.filter((img: any) => img.type === cleanPath);
             setImgs(filteredData.map((img: any) => img.path));
             setUploadedImgs(filteredData.map((img: any) => img.uploaded));
+            setDescription(filteredData.map((img: any) => img.description));
         } catch (error) {
             console.error("Error fetching images:", error);
         }
@@ -194,6 +197,7 @@ export default function Imgs() {
                 {uploadedImgs.length > 0 && (
                     <p className={styles.uploaded}>Uploaded by: {uploadedImgs[currentImg] || "Anonymous"}</p>
                 )}
+                <p className={styles.uploaded}>The image belongs to: {description[currentImg]}</p>
             </div>
             <img onClick={nextImg} className={`${styles.arrow} ${styles.right}`} src={arrowRight} alt="Right Arrow" id="right" />
             <Popup message={popupMessage} onClose={() => setPopupMessage(null)} />

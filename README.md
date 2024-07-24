@@ -147,3 +147,9 @@ If you want to know more about the project or have any questions, you can contac
 ## 📄 License
 
 This project is licensed under the MIT License. See the [LICENSE.md](./LICENSE.md) file for details.
+
+## 📜 Attributions
+
+### Fonts
+
+- **Fright**: The font used in the project is "Fright". You can find more information about this font on the author's website [here](https://www.letterhend.com/). The font is licensed under [License](https://www.letterhend.com/licenses/).

@@ -42,9 +42,15 @@ const { sectionTitle } = Astro.props;
       </div>
       <div class="imgForm">
         <label for="description">Description: </label>
-        <input type="text" name="description" placeholder="The image belongs to (optional)" id="description" maxlength="40">
+        <input
+          type="text"
+          name="description"
+          placeholder="The image belongs to (optional)"
+          id="description"
+          maxlength="40"
+        />
       </div>
-      <div class="imgForm imgFormLandScape">
+      <div class="imgForm imgButtons">
         <label for="file-upload" class="custom-file-upload labelFileUpload"
           >Upload Image</label
         >
@@ -154,6 +160,13 @@ const { sectionTitle } = Astro.props;
     color: black;
     border-radius: 5px;
     flex: 1;
+   
+  }
+  input:not([type="file"]){
+    height: 15px;
+  }
+  select {
+    height: 35px;
   }
   .labelFileUpload {
     margin-top: 20px;
@@ -215,7 +228,6 @@ const { sectionTitle } = Astro.props;
       margin-top: 5px;
     }
     .fileUpload {
-      
       position: relative;
       width: 15vw;
       bottom: 25px;
@@ -228,7 +240,7 @@ const { sectionTitle } = Astro.props;
     .imgForm {
       flex-direction: column;
     }
-    .imgFormLandScape {
+    .imgButtons {
       flex-direction: row;
     }
     label,
@@ -243,7 +255,5 @@ const { sectionTitle } = Astro.props;
     #close {
       width: 90px;
     }
-
-    
   }
 </style>

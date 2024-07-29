@@ -216,21 +216,28 @@ export default function Imgs() {
                 </div>
             </div> */}
 
-            <div className={styles.testContainer}>
-                <div className={styles.test}>
-                    {imgs.map((img, index) => (
+           
+            <div className={styles.test}>
+                {imgs.map((img, index) => (
+                    <div key={index} className={styles.imageContainer}>
                         <img
-                            key={index}
                             className={styles.galleryImage}
                             src={`${import.meta.env.PUBLIC_IMAGES_URL}${img}`}
                             alt="Horror context gallery"
-
                         />
-
-                    ))}
-                    
-                </div>
+                        <div id="credits">
+                            {uploadedImgs.length > 0 && (
+                                <p className={styles.uploaded}>Uploaded by: {uploadedImgs[index] || "Anonymous"}</p>
+                            )}
+                            {description.length > 0 && (
+                                <p className={styles.uploaded}>The image belongs to: {description[index] || "Unknown"}</p>
+                            )}
+                        </div>
+                    </div>
+                ))}
             </div>
+
+            
 
 
             <Popup message={popupMessage} onClose={() => setPopupMessage(null)} />

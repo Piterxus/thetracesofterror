@@ -196,9 +196,9 @@ export default function Imgs() {
     }
 
     return (
-        <div className={styles.imageGalleryContainer}>
-            <img onClick={prevImg} className={`${styles.arrow} ${styles.left}`} src={arrowLeft} alt="Left Arrow" id="left" />
-            <div className={styles.imageGallery}>
+        <div>
+            {/* <img onClick={prevImg} className={`${styles.arrow} ${styles.left}`} src={arrowLeft} alt="Left Arrow" id="left" /> */}
+            {/* <div className={styles.imageGallery}>
                 {imgs.length > 0 && (
                     <img
                         onTouchStart={nextImg}
@@ -214,9 +214,27 @@ export default function Imgs() {
                     )}
                     {description.length > 0 && (<p className={styles.uploaded}>The image belongs to: {description[currentImg] || "Unknown"}</p>)}
                 </div>
+            </div> */}
+
+            <div className={styles.testContainer}>
+                <div className={styles.test}>
+                    {imgs.map((img, index) => (
+                        <img
+                            key={index}
+                            className={styles.galleryImage}
+                            src={`${import.meta.env.PUBLIC_IMAGES_URL}${img}`}
+                            alt="Horror context gallery"
+
+                        />
+
+                    ))}
+                    
+                </div>
             </div>
-            <img onClick={nextImg} className={`${styles.arrow} ${styles.right}`} src={arrowRight} alt="Right Arrow" id="right" />
+
+
             <Popup message={popupMessage} onClose={() => setPopupMessage(null)} />
         </div>
+
     );
 }

@@ -102,3 +102,16 @@
   }
 
   /* scroll */
+
+  /* body{
+    overflow: auto;
+  } */
+
+
+
+
+  .test {
+      width: 50vh;
+      height: 50vh;
+      border: 1px solid red;
+  }

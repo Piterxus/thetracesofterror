@@ -216,7 +216,10 @@ export default function Imgs() {
                 </div>
             </div> */}
 
-           
+            <div className="galleryHeader">
+                {/* <h1>{sectionTitle}</h1> */}
+                <a href="/" className={styles.backButton}>BACK</a>
+            </div>
             <div className={styles.test}>
                 {imgs.map((img, index) => (
                     <div key={index} className={styles.imageContainer}>

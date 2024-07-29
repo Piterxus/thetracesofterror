@@ -1,6 +1,7 @@
 ---
 import Layout from "./Layout.astro";
 import Imgs from "../components/Imgs";
+import ImgsScroll from "../components/ImgsScroll";
 
 interface Props {
   sectionTitle: string;
@@ -15,7 +16,8 @@ const { sectionTitle } = Astro.props;
       <h1>{sectionTitle}</h1>
       <a href="/" class="back-button">BACK</a>
     </div>
-    <Imgs client:load />
+    <!-- <Imgs client:load /> -->
+    <ImgsScroll client:load />
     <div class="buttonUploadContainer">
       <button class="fileUpload custom-file-upload" id="fileUp"
         >UPLOAD IMAGE</button

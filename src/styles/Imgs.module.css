@@ -60,6 +60,33 @@
       right: 10px;
   }
 
+  .imageGalleryScroll {
+      /* position: absolute;
+      top: 50%;
+      left: 50%; */
+      /* transform: translate(-50%); */
+      /* width: 50vh;
+      height: 50vh; */
+      /* background-color: yellow; */
+      /* box-shadow: inset 0 0 0 1px rgba(200, 255, 3, 0.1); */
+      /* border-radius: 10px; */
+   
+      /* overflow: auto; */
+      margin-top: 10px;
+
+  }
+
+  .galleryImageScroll {
+      width: 30vw;
+      height: 40vh;
+      object-fit: fill;
+      border-radius: 5px;
+      box-shadow: 0 0 35px #0FF;
+   
+
+
+  }
+
   @media (max-width: 768px) {
       .imageGalleryContainer {
           justify-content: center;
@@ -108,22 +135,6 @@
   } */
 
 
-.backButton{
-    text-decoration: none;
-    color: white;
-    font-family: "Fright";
-    text-align: center;
-}
-.imageContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 1rem;
-    /* Espacio entre imágenes */
-}
-  .test {
-      width: 50vh;
-      height: 50vh;
-    scroll-snap-type: y mandatory;
-      /* overflow-y: auto; */
-  }
+
+
+ 

@@ -11,57 +11,6 @@ const { sectionTitle } = Astro.props;
 ---
 
 <Layout title="the traces of terror">
-  <!-- <div class="gallery">
-    <div class="galleryHeader">
-      <h1>{sectionTitle}</h1>
-      <a href="/" class="back-button">BACK</a>
-    </div>
-    <Imgs client:load />
-    
-    <div class="buttonUploadContainer">
-      <button class="fileUpload custom-file-upload" id="fileUp"
-        >UPLOAD IMAGE</button
-      >
-    </div>
-    <div class="fileUploadContainer">
-      <div class="imgForm">
-        <label for="uploader">Uploader:</label>
-        <input
-          type="text"
-          name="uploaded"
-          placeholder="email or username (optional)"
-          maxlength="35"
-        />
-      </div>
-      <div class="imgForm">
-        <label for="type">Type:</label>
-        <select name="type" id="type">
-          <option value="cinema">Cinema</option>
-          <option value="tv">TV</option>
-          <option value="comic">Comic</option>
-          <option value="others">Others</option>
-        </select>
-      </div>
-      <div class="imgForm">
-        <label for="description">Description: </label>
-        <input
-          type="text"
-          name="description"
-          placeholder="The image belongs to (optional)"
-          id="description"
-          maxlength="40"
-        />
-      </div>
-      <div class="imgForm imgButtons">
-        <label for="file-upload" class="custom-file-upload labelFileUpload"
-          >Upload Image</label
-        >
-        <input id="file-upload" type="file" />
-        <button class="custom-file-upload" id="close">CLOSE</button>
-      </div>
-    </div>
-  </div> -->
-
   <div class="galleryHeader">
     <h1>{sectionTitle}</h1>
     <div class="controlButtons">
@@ -103,7 +52,7 @@ const { sectionTitle } = Astro.props;
         maxlength="40"
       />
     </div>
-    <div class="imgForm imgButtons">
+    <div class="imgButtons">
       <label for="file-upload" class="custom-file-upload labelFileUpload"
         >Upload Image</label
       >
@@ -122,17 +71,7 @@ const { sectionTitle } = Astro.props;
     margin: 0;
     /* overflow: hidden; */
   }
-  /* h1,
-  a {
-    text-align: center;
-    font-family: "Fright";
-    color: white;
-    -webkit-text-stroke-width: 0.5px;
-    -webkit-text-stroke-color: black;
-    text-decoration: none;
-    position: absolute;
-    top: 0px;
-  } */
+
   .gallery {
     background-color: #13151a;
     height: 90vh;
@@ -149,7 +88,6 @@ const { sectionTitle } = Astro.props;
     display: flex;
     justify-content: center;
     align-items: center;
-   
   }
   .galleryHeader {
     text-align: center;
@@ -169,10 +107,7 @@ const { sectionTitle } = Astro.props;
     -webkit-text-stroke-width: 0.5px;
     -webkit-text-stroke-color: black;
   }
-  /* .back-button {
-    position: relative;
-    display: inline-block;
-  } */
+
   .buttonUploadContainer {
     display: flex;
     justify-content: center;
@@ -187,15 +122,23 @@ const { sectionTitle } = Astro.props;
     width: 10vw;
   }
   .fileUploadContainer {
-    display: none;
+    display: none; /* Oculto por defecto */
     justify-content: center;
-    margin-top: 1rem;
-    position: absolute;
-    bottom: 1px;
+    align-items: center;
+    flex-direction: column;
+    position: fixed; /* Posición fija para centrar en la pantalla */
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
-    width: 100vw;
-    margin-bottom: 10px;
+    transform: translate(-50%, -50%); /* Centrando en la pantalla */
+    background-color: rgba(
+      19,
+      21,
+      26,
+      0.9
+    ); /* Fondo semi-transparente para destacar el contenedor */
+    padding: 2rem;
+    border-radius: 10px;
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
   }
   #file-upload {
     display: none;
@@ -218,8 +161,10 @@ const { sectionTitle } = Astro.props;
     background-color: #3a3d44;
   }
   .imgForm {
-    margin: 10px;
+    margin: 10px 0; /* Espacio entre campos */
     display: flex;
+    flex-direction: column; /* Disposición en columna */
+    width: 100%; /* Ocupa todo el ancho del contenedor */
   }
   label {
     display: inline-block;
@@ -247,6 +192,11 @@ const { sectionTitle } = Astro.props;
     height: 15px;
     font-size: small;
   }
+  .imgButtons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
   #fileUp {
     width: 120px;
   }
@@ -258,14 +208,14 @@ const { sectionTitle } = Astro.props;
     h1 {
       font-size: x-large;
     }
-    .fileUploadContainer {
+    /* .fileUploadContainer {
       position: static;
       transform: none;
       margin-top: 5rem;
       flex-direction: column;
       width: 95%;
-    }
-    .custom-file-upload {
+    } */
+    /* .custom-file-upload {
       width: 80%;
       text-align: center;
     }
@@ -276,7 +226,7 @@ const { sectionTitle } = Astro.props;
     select {
       width: 100%;
       font-size: small;
-    }
+    } */
     /* .back-button::after {
       content: "Tap on images to view them!";
       display: block;
@@ -310,27 +260,27 @@ const { sectionTitle } = Astro.props;
       bottom: 25px;
       font-size: x-small;
     } */
-    .fileUploadContainer {
+    /* .fileUploadContainer {
       bottom: 30px;
       position: relative;
-    }
-    .imgForm {
+    } */
+    /* .imgForm {
       flex-direction: column;
     }
     .imgButtons {
       flex-direction: row;
-    }
-    label,
+    } */
+    /* label,
     input,
     select {
       font-size: x-small;
       height: 50%;
       margin-bottom: 10px;
       width: 90%;
-    }
+    } */
 
-    #close {
+    /* #close {
       width: 90px;
-    }
+    } */
   }
 </style>

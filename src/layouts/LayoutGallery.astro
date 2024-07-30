@@ -64,12 +64,14 @@ const { sectionTitle } = Astro.props;
 
   <div class="galleryHeader">
     <h1>{sectionTitle}</h1>
-    <a href="/" class="back-button">BACK</a>
+    <div class="controlButtons">
+      <a href="/" class="back-button">BACK</a>
+      <button class="fileUpload custom-file-upload" id="fileUp"
+        >UPLOAD IMAGE</button
+      >
+    </div>
   </div>
   <div>
-    <button class="fileUpload custom-file-upload" id="fileUp"
-      >UPLOAD IMAGE</button
-    >
     <ImgsScroll client:load />
   </div>
   <div class="fileUploadContainer">
@@ -142,6 +144,12 @@ const { sectionTitle } = Astro.props;
     flex-direction: column;
     justify-content: center;
     bottom: 5vh;
+  }
+  .controlButtons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
   }
   .galleryHeader {
     text-align: center;
@@ -238,6 +246,9 @@ const { sectionTitle } = Astro.props;
     margin-top: 20px;
     height: 15px;
     font-size: small;
+  }
+  #fileUp {
+    width: 120px;
   }
   #close {
     margin-top: 20px;

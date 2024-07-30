@@ -62,56 +62,53 @@ const { sectionTitle } = Astro.props;
     </div>
   </div> -->
 
-    <div class="galleryHeader">
-      <h1>{sectionTitle}</h1>
-      <a href="/" class="back-button">BACK</a>
-      
-    </div>
-   
+  <div class="galleryHeader">
+    <h1>{sectionTitle}</h1>
+    <a href="/" class="back-button">BACK</a>
+  </div>
+  <div>
+    <button class="fileUpload custom-file-upload" id="fileUp"
+      >UPLOAD IMAGE</button
+    >
     <ImgsScroll client:load />
-    <div>
-      <button class="fileUpload custom-file-upload" id="fileUp"
-        >UPLOAD IMAGE</button
+  </div>
+  <div class="fileUploadContainer">
+    <div class="imgForm">
+      <label for="uploader">Uploader:</label>
+      <input
+        type="text"
+        name="uploaded"
+        placeholder="email or username (optional)"
+        maxlength="35"
+      />
+    </div>
+    <div class="imgForm">
+      <label for="type">Type:</label>
+      <select name="type" id="type">
+        <option value="cinema">Cinema</option>
+        <option value="tv">TV</option>
+        <option value="comic">Comic</option>
+        <option value="others">Others</option>
+      </select>
+    </div>
+    <div class="imgForm">
+      <label for="description">Description: </label>
+      <input
+        type="text"
+        name="description"
+        placeholder="The image belongs to (optional)"
+        id="description"
+        maxlength="40"
+      />
+    </div>
+    <div class="imgForm imgButtons">
+      <label for="file-upload" class="custom-file-upload labelFileUpload"
+        >Upload Image</label
       >
+      <input id="file-upload" type="file" />
+      <button class="custom-file-upload" id="close">CLOSE</button>
     </div>
-    <div class="fileUploadContainer">
-      <div class="imgForm">
-        <label for="uploader">Uploader:</label>
-        <input
-          type="text"
-          name="uploaded"
-          placeholder="email or username (optional)"
-          maxlength="35"
-        />
-      </div>
-      <div class="imgForm">
-        <label for="type">Type:</label>
-        <select name="type" id="type">
-          <option value="cinema">Cinema</option>
-          <option value="tv">TV</option>
-          <option value="comic">Comic</option>
-          <option value="others">Others</option>
-        </select>
-      </div>
-      <div class="imgForm">
-        <label for="description">Description: </label>
-        <input
-          type="text"
-          name="description"
-          placeholder="The image belongs to (optional)"
-          id="description"
-          maxlength="40"
-        />
-      </div>
-      <div class="imgForm imgButtons">
-        <label for="file-upload" class="custom-file-upload labelFileUpload"
-          >Upload Image</label
-        >
-        <input id="file-upload" type="file" />
-        <button class="custom-file-upload" id="close">CLOSE</button>
-      </div>
-    </div>
-  
+  </div>
 </Layout>
 
 <style>

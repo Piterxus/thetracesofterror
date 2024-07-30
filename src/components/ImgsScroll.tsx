@@ -196,7 +196,7 @@ export default function Imgs() {
     }
 
     return (
-        <div className={styles.imageGallery}>
+        <div className={styles.imageGalleryScroll}>
 
 
      
@@ -204,7 +204,7 @@ export default function Imgs() {
                 {imgs.map((img, index) => (
                     <div key={index}>
                         <img
-                            className={styles.galleryImage}
+                            className={styles.galleryImageScroll}
                             src={`${import.meta.env.PUBLIC_IMAGES_URL}${img}`}
                             alt="Horror context gallery"
                         />

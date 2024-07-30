@@ -202,7 +202,7 @@ export default function Imgs() {
      
            
                 {imgs.map((img, index) => (
-                    <div key={index}>
+                    <div className={styles.imageContainer} key={index}>
                         <img
                             className={styles.galleryImageScroll}
                             src={`${import.meta.env.PUBLIC_IMAGES_URL}${img}`}

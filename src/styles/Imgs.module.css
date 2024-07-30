@@ -100,3 +100,30 @@
 
       }
   }
+
+  /* scroll */
+
+  /* body{
+    overflow: auto;
+  } */
+
+
+.backButton{
+    text-decoration: none;
+    color: white;
+    font-family: "Fright";
+    text-align: center;
+}
+.imageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+    /* Espacio entre imágenes */
+}
+  .test {
+      width: 50vh;
+      height: 50vh;
+    scroll-snap-type: y mandatory;
+      /* overflow-y: auto; */
+  }

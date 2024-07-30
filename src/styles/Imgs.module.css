@@ -81,7 +81,7 @@
       height: 40vh;
       object-fit: fill;
       border-radius: 5px;
-      box-shadow: 0 0 35px #0FF;
+      /* box-shadow: 0 0 35px #0FF; */
    
 
 
@@ -92,6 +92,7 @@
     margin: 10px;
     padding: 10px;
     border-radius: 5px;
+    box-shadow: 0 0 15px #0FF;
   }
 
   @media (max-width: 768px) {

@@ -196,33 +196,13 @@ export default function Imgs() {
     }
 
     return (
-        <div>
-            {/* <img onClick={prevImg} className={`${styles.arrow} ${styles.left}`} src={arrowLeft} alt="Left Arrow" id="left" /> */}
-            {/* <div className={styles.imageGallery}>
-                {imgs.length > 0 && (
-                    <img
-                        onTouchStart={nextImg}
-                        className={styles.galleryImage}
-                        key={currentImg}
-                        src={`${import.meta.env.PUBLIC_IMAGES_URL}${imgs[currentImg]}`}
-                        alt="Horror context gallery"
-                    />
-                )}
-                <div id="credits">
-                    {uploadedImgs.length > 0 && (
-                        <p className={styles.uploaded}>Uploaded by: {uploadedImgs[currentImg] || "Anonymous"}</p>
-                    )}
-                    {description.length > 0 && (<p className={styles.uploaded}>The image belongs to: {description[currentImg] || "Unknown"}</p>)}
-                </div>
-            </div> */}
+        <div className={styles.imageGallery}>
 
-            <div className="galleryHeader">
-                {/* <h1>{sectionTitle}</h1> */}
-                <a href="/" className={styles.backButton}>BACK</a>
-            </div>
-            <div className={styles.test}>
+
+     
+           
                 {imgs.map((img, index) => (
-                    <div key={index} className={styles.imageContainer}>
+                    <div key={index}>
                         <img
                             className={styles.galleryImage}
                             src={`${import.meta.env.PUBLIC_IMAGES_URL}${img}`}
@@ -238,7 +218,7 @@ export default function Imgs() {
                         </div>
                     </div>
                 ))}
-            </div>
+            
 
             
 

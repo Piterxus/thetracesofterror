@@ -103,35 +103,7 @@ export default function Imgs() {
         };
     }, []);
 
-    // useEffect(() => {
-    //     const handleTouchStart = (e: TouchEvent) => {
-    //         touchStartX = e.touches[0].clientX;
-    //     };
 
-    //     const handleTouchMove = (e: TouchEvent) => {
-    //         touchEndX = e.touches[0].clientX;
-    //     };
-
-    //     const handleTouchEnd = () => {
-    //         if (touchStartX - touchEndX > 50) {
-    //             nextImg();
-    //         }
-
-    //         if (touchStartX - touchEndX < -50) {
-    //             prevImg();
-    //         }
-    //     };
-
-    //     document.addEventListener('touchstart', handleTouchStart, false);
-    //     document.addEventListener('touchmove', handleTouchMove, false);
-    //     document.addEventListener('touchend', handleTouchEnd, false);
-
-    //     return () => {
-    //         document.removeEventListener('touchstart', handleTouchStart, false);
-    //         document.removeEventListener('touchmove', handleTouchMove, false);
-    //         document.removeEventListener('touchend', handleTouchEnd, false);
-    //     };
-    // }, []);
 
     useEffect(() => {
         const fileUp = document.getElementById("fileUp");
@@ -144,9 +116,7 @@ export default function Imgs() {
                 if (fileUp) {
                     fileUp.style.display = "none";
                 }
-                // if (credits) {
-                //     credits.style.display = "none";
-                // }
+
                 fileUploadContainer.style.display = "flex";
             }
         };
@@ -158,9 +128,7 @@ export default function Imgs() {
                 if (fileUp) {
                     fileUp.style.display = "block";
                 }
-                // if (credits) {
-                //     credits.style.display = "block";
-                // }
+
                 fileUploadContainer.style.display = "none";
             }
         };
@@ -183,13 +151,7 @@ export default function Imgs() {
         };
     }, []);
 
-    // function nextImg() {
-    //     setCurrentImg((prev) => (imgs.length > 0 ? (prev + 1) % imgs.length : 0));
-    // }
 
-    // function prevImg() {
-    //     setCurrentImg((prev) => (imgs.length > 0 ? (prev - 1 + imgs.length) % imgs.length : 0));
-    // }
 
     return (
         <div className={styles.imageGallery}>

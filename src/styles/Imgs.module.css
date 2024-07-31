@@ -3,123 +3,44 @@
       src: url(../fright_maiden/Fright\ Maiden\ Demo.ttf) format("truetype");
   }
 
+  .imageGallery {
+      margin-top: 30px;
+  }
+
   .uploaded {
       color: white;
       font-family: "Fright";
       text-align: center;
   }
 
-  .imageGalleryContainer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem;
-      flex-grow: 1;
-      position: relative;
-
+  .imageContainer {
+      border: 0.5px solid #23262d;
+      margin: 10px;
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0 0 15px #0FF;
+      margin-bottom: 100px;
   }
 
-  .imageGallery {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 50vh;
-      height: 50vh;
-      background-color: #23262d;
-      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-      border-radius: 10px;
 
-  }
 
   .galleryImage {
-      width: 100%;
-      height: 100%;
-      object-fit: fill;
-      border-radius: 5px;
-      box-shadow: 0 0 35px #0FF;
-
-
-
-  }
-
-  .arrow {
-
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      cursor: pointer;
-      width: 5%;
-  }
-
-  .arrow.left {
-      left: 10px;
-  }
-
-  .arrow.right {
-      right: 10px;
-  }
-
-  .imageGalleryScroll {
-      /* position: absolute;
-      top: 50%;
-      left: 50%; */
-      /* transform: translate(-50%); */
-      /* width: 50vh;
-      height: 50vh; */
-      /* background-color: yellow; */
-      /* box-shadow: inset 0 0 0 1px rgba(200, 255, 3, 0.1); */
-      /* border-radius: 10px; */
-   
-      /* overflow: auto; */
-      margin-top: 10px;
-
-  }
-
-  .galleryImageScroll {
       width: 40vw;
       height: 40vh;
       object-fit: fill;
       border-radius: 5px;
-     
-      /* box-shadow: 0 0 35px #0FF; */
-   
+
 
 
   }
 
-  .imageContainer{
-    border:0.5px solid #23262d;
-    margin: 10px;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 0 15px #0FF;
-    margin-bottom: 100px;
-  }
-
-  /* @media (max-width: 768px) {
-      .imageGalleryContainer {
-          justify-content: center;
-      }
-
-      .arrow {
-          width: 10%;
-      }
-
-      .galleryImageScroll {
-          width: 80vh;
-          height: 40vh;
-      }
-  } */
 
   @media (max-width: 480px) {
-      .arrow {
-          display: none;
-      }
 
-      .galleryImageScroll {
+
+      .galleryImage {
           width: 90vw;
-          height: 90vw;
+          
       }
 
 
@@ -127,29 +48,18 @@
 
   @media (max-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2),
   (max-width: 1024px) and (orientation: landscape) and (min-resolution: 192dpi) {
-      .arrow {
-          display: none;
-      }
 
-      .uploaded {
-          /* font-size: 0.9rem; */
+
+      /* .uploaded {
+         
           display: none;
 
-      }
+      } */
 
-      .galleryImageScroll {
-        width: 70vw;
-        height: 70vw;
-    }
+      .galleryImage {
+          width: 70vw;
+          height: 70vh;
+      }
   }
-
-  /* scroll */
-
-  /* body{
-    overflow: auto;
-  } */
-
-
-
 
  

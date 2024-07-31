@@ -11,8 +11,7 @@ export default function Imgs() {
     const [uploadedImgs, setUploadedImgs] = useState<string[]>([]);
     const [description, setDescription] = useState<string>("");
     const [popupMessage, setPopupMessage] = useState<string | null>(null);
-    // let touchStartX: number = 0;
-    // let touchEndX: number = 0;
+  
 
     async function fetchImgs() {
         try {

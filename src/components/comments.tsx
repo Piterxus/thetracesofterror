@@ -5,7 +5,7 @@ const comic = "/imgs/comic.png";
 
 export default function Comments() {
 
-   
+
     useEffect(() => {
         const handleComments = () => {
             const openComments = document.getElementById('openComments') as HTMLButtonElement | null;
@@ -36,12 +36,12 @@ export default function Comments() {
         };
     }, []);
 
-       
-   
+
+
 
     return (
-        <div  className={styles.commentsContainer}>
-            <img  className={styles.icon} src={commentsIcon} alt="Comments icon" />
+        <div className={styles.commentsContainer}>
+            <img className={styles.icon} src={commentsIcon} alt="Comments icon" />
             <img className={styles.comic} src={comic} alt="Image with message to encourage commenting" />
         </div>
     );

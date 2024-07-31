@@ -29,14 +29,11 @@
       height: 40vh;
       object-fit: fill;
       border-radius: 5px;
-
-
-
   }
 
-  .creditsComments{
-    display: flex;
-    justify-content: space-between;
+  .creditsComments {
+      display: flex;
+      justify-content: space-between;
   }
 
 
@@ -45,7 +42,7 @@
 
       .galleryImage {
           width: 90vw;
-          
+
       }
 
 
@@ -66,5 +63,3 @@
           height: 70vh;
       }
   }
-
- 

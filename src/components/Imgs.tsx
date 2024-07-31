@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'preact/hooks';
 import styles from '../styles/Imgs.module.css';
 import Popup from './Popup';
-import Comments from "../components/comments";
+import Comments from "./Comments";
 
 
 

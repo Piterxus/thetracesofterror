@@ -1,7 +1,7 @@
 ---
 import Layout from "./Layout.astro";
 import Imgs from "../components/Imgs";
-import ImgsScroll from "../components/ImgsScroll";
+
 
 interface Props {
   sectionTitle: string;
@@ -21,7 +21,8 @@ const { sectionTitle } = Astro.props;
     </div>
   </div>
   <div>
-    <ImgsScroll client:load />
+    <Imgs client:load />
+
   </div>
   <div class="fileUploadContainer">
     <div class="imgForm">
@@ -67,28 +68,7 @@ const { sectionTitle } = Astro.props;
     font-family: "Fright";
     src: url(../fright_maiden/Fright\ Maiden\ Demo.ttf) format("truetype");
   }
-  body {
-    margin: 0;
-    /* overflow: hidden; */
-  }
 
-  .gallery {
-    background-color: #13151a;
-    height: 90vh;
-    width: 90vw;
-    border-radius: 10px;
-    margin: auto;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    bottom: 5vh;
-  }
-  .controlButtons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
   .galleryHeader {
     text-align: center;
     font-family: "Fright";
@@ -107,13 +87,12 @@ const { sectionTitle } = Astro.props;
     -webkit-text-stroke-width: 0.5px;
     -webkit-text-stroke-color: black;
   }
-
-  .buttonUploadContainer {
+  .controlButtons {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 10px;
   }
+
   .fileUpload {
     display: flex;
     justify-content: center;
@@ -122,23 +101,18 @@ const { sectionTitle } = Astro.props;
     width: 10vw;
   }
   .fileUploadContainer {
-    display: none; /* Oculto por defecto */
+    display: none;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    position: fixed; /* Posición fija para centrar en la pantalla */
+    position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* Centrando en la pantalla */
-    background-color: rgba(
-      19,
-      21,
-      26,
-      0.9
-    ); /* Fondo semi-transparente para destacar el contenedor */
+    transform: translate(-50%, -50%);
+    background-color: rgba(19, 21, 26, 0.9);
     padding: 2rem;
     border-radius: 10px;
-    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    z-index: 1000;
   }
   #file-upload {
     display: none;
@@ -181,12 +155,6 @@ const { sectionTitle } = Astro.props;
     border-radius: 5px;
     flex: 1;
   }
-  input:not([type="file"]) {
-    height: 15px;
-  }
-  select {
-    height: 35px;
-  }
   .labelFileUpload {
     margin-top: 20px;
     height: 15px;
@@ -203,84 +171,5 @@ const { sectionTitle } = Astro.props;
   #close {
     margin-top: 20px;
     width: 140px;
-  }
-  @media (max-width: 480px) {
-    h1 {
-      font-size: x-large;
-    }
-    /* .fileUploadContainer {
-      position: static;
-      transform: none;
-      margin-top: 5rem;
-      flex-direction: column;
-      width: 95%;
-    } */
-    /* .custom-file-upload {
-      width: 80%;
-      text-align: center;
-    }
-    label {
-      font-size: small;
-    }
-    input,
-    select {
-      width: 100%;
-      font-size: small;
-    } */
-    /* .back-button::after {
-      content: "Tap on images to view them!";
-      display: block;
-      font-size: 0.8rem;
-      color: white;
-      text-align: center;
-      margin-top: 1rem;
-    } */
-  }
-
-  /* Reglas para dispositivos móviles en orientación landscape y alta densidad de píxeles */
-  @media (max-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2),
-    (max-width: 1024px) and (orientation: landscape) and (min-resolution: 192dpi) {
-    /* h1 {
-      display: none;
-    } */
-    /* .back-button::after {
-      content: "Tap on images to view them!";
-      display: block;
-      font-size: 0.6rem;
-      color: white;
-      text-align: center;
-     
-    } */
-    /* .galleryHeader {
-      margin-top: 5px;
-    } */
-    /* .fileUpload {
-      position: relative;
-      width: 15vw;
-      bottom: 25px;
-      font-size: x-small;
-    } */
-    /* .fileUploadContainer {
-      bottom: 30px;
-      position: relative;
-    } */
-    /* .imgForm {
-      flex-direction: column;
-    }
-    .imgButtons {
-      flex-direction: row;
-    } */
-    /* label,
-    input,
-    select {
-      font-size: x-small;
-      height: 50%;
-      margin-bottom: 10px;
-      width: 90%;
-    } */
-
-    /* #close {
-      width: 90px;
-    } */
   }
 </style>

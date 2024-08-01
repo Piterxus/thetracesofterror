@@ -5,8 +5,22 @@ const comic = "/imgs/comic.png";
 
 export default function Comments() {
 
+    async function fetchComments() {
+        try {
+            const res = await fetch(import.meta.env.PUBLIC_COMMENTS_API_URL);
+            if (!res.ok) {
+                throw new Error(`Failed to fetch comments: ${res.statusText}`);
+            }
+            const data = await res.json();
+            console.log("Comments:", data);
+        } catch (error) {
+            console.error("Error fetching comments:", error);
+        }
+    }
+
 
     useEffect(() => {
+        fetchComments();
         const handleComments = () => {
             const openComments = document.getElementById('openComments') as HTMLButtonElement | null;
             const closeComments = document.getElementById('closeComments') as HTMLButtonElement | null;

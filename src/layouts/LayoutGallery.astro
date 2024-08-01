@@ -72,6 +72,7 @@ const { sectionTitle } = Astro.props;
   @font-face {
     font-family: "Fright";
     src: url(../fright_maiden/Fright\ Maiden\ Demo.ttf) format("truetype");
+    font-display: swap;
   }
 
   .galleryHeader {
@@ -105,7 +106,8 @@ const { sectionTitle } = Astro.props;
     margin-top: 1rem;
     width: 10vw;
   }
-  .fileUploadContainer, .commentsContainer {
+  .fileUploadContainer,
+  .commentsContainer {
     display: none;
     justify-content: center;
     align-items: center;
@@ -141,13 +143,13 @@ const { sectionTitle } = Astro.props;
   }
   .imgForm,
   .commentsForm {
-    margin: 10px 0; 
+    margin: 10px 0;
     display: flex;
-    flex-direction: column; 
-    width: 100%; 
+    flex-direction: column;
+    width: 100%;
   }
-  .commentsForm{
-    align-items: center; 
+  .commentsForm {
+    align-items: center;
   }
 
   label {
@@ -185,8 +187,8 @@ const { sectionTitle } = Astro.props;
     margin-top: 20px;
     width: 140px;
   }
-#closeComments{
+  #closeComments {
     margin-top: 20px;
     width: 140px;
-}
+  }
 </style>

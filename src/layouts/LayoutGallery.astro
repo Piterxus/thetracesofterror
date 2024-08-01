@@ -82,9 +82,13 @@ const { sectionTitle } = Astro.props;
     -webkit-text-stroke-width: 0.5px;
     -webkit-text-stroke-color: black;
     text-decoration: none;
-    position: relative;
+    position: sticky;
     top: 0px;
     width: 100%;
+    background-color: #23262d;
+    border-bottom: 0.5px solid #84878b;
+    z-index: 3000;
+    padding-bottom: 1rem;
   }
 
   .galleryHeader a {

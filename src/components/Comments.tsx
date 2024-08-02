@@ -4,7 +4,7 @@ const commentsIcon = "/imgs/vampire-teeth.svg";
 const comic = "/imgs/comic.png";
 
 export default function Comments(props: any) {
-
+    const filteredComments:string[] = [];
     // async function fetchComments() {
     //     try {
     //         const res = await fetch(import.meta.env.PUBLIC_COMMENTS_API_URL);
@@ -12,7 +12,7 @@ export default function Comments(props: any) {
     //             throw new Error(`Failed to fetch comments: ${res.statusText}`);
     //         }
     //         const data = await res.json();
-    //         // console.log("Comments:", data[0].content);
+    //         console.log("Comments:", data[0].content);
     //     } catch (error) {
     //         console.error("Error fetching comments:", error);
     //     }
@@ -20,39 +20,8 @@ export default function Comments(props: any) {
 
 
     // useEffect(() => {
-    //     // fetchComments();
-    //     const handleComments = () => {
-    //         const openComments = document.getElementById('openComments') as HTMLButtonElement | null;
-    //         const closeComments = document.getElementById('closeComments') as HTMLButtonElement | null;
-    //         const comments = document.getElementById('comments') as HTMLDivElement | null;
-    //         if (openComments) {
-    //             openComments.style.display = "block";
-    //           if (comments) {
-    //               comments.innerHTML += props.comments;
-    //           }
-    //         }
-    //         if (closeComments) {
-    //             closeComments.addEventListener("click", () => {
-    //                 if (openComments) {
-    //                     openComments.style.display = "none";
-    //                 }
-    //             });
-    //         }
-    //     }
+    //     fetchComments();
 
-    //     const clickImages = document.querySelectorAll(`.${styles.icon}`);
-
-    //     clickImages.forEach((img) => {
-            
-    //         img.addEventListener("click", handleComments);
-    //     });
-
-    //     // Cleanup event listeners on unmount
-    //     return () => {
-    //         clickImages.forEach((img) => {
-    //             img.removeEventListener("click", handleComments);
-    //         });
-    //     };
     // }, []);
 
     const handleComments = () => {

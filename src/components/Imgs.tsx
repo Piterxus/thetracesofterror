@@ -7,12 +7,14 @@ import Comments from "./Comments";
 
 
 
+
 export default function Imgs() {
     const [imgs, setImgs] = useState<string[]>([]);
     const [uploadedImgs, setUploadedImgs] = useState<string[]>([]);
     const [description, setDescription] = useState<string>("");
-    const [id_img, setId_img] = useState<string>("");
+    const [id_img, setId_img] = useState<number>(0);
     const [popupMessage, setPopupMessage] = useState<string | null>(null);
+    const [comments, setComments] = useState<string[]>([]);
 
 
     async function fetchImgs() {
@@ -22,6 +24,7 @@ export default function Imgs() {
                 throw new Error(`Failed to fetch images: ${res.statusText}`);
             }
             const data = await res.json();
+            console.log("Data:", data);
             const rawPath = window.location.pathname;
             const cleanPath = rawPath.replace(/^\/|\/$/g, '');
             const filteredData = data.filter((img: any) => img.type === cleanPath);
@@ -40,6 +43,8 @@ export default function Imgs() {
                 throw new Error(`Failed to fetch comments: ${res.statusText}`);
             }
             const data = await res.json();
+            const testComments = data.filter((comment: any) => comment.id_img === 2)
+            console.log("Filtered comments:", testComments);
            console.log("Comments:", data);
         } catch (error) {
             console.error("Error fetching comments:", error);
@@ -191,7 +196,7 @@ export default function Imgs() {
                             )}
 
                         </div>
-                        <Comments comments="Hola"/>
+                        <Comments comments={id_img[index]}/>
                     </div>
                 </div>
             ))}

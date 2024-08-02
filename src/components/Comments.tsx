@@ -1,45 +1,49 @@
-import { useEffect } from 'preact/hooks';
+import { useEffect, useState } from 'preact/hooks';
 import styles from '../styles/Comments.module.css';
 const commentsIcon = "/imgs/vampire-teeth.svg";
 const comic = "/imgs/comic.png";
 
 export default function Comments(props: any) {
-    const filteredComments:string[] = [];
-    // async function fetchComments() {
-    //     try {
-    //         const res = await fetch(import.meta.env.PUBLIC_COMMENTS_API_URL);
-    //         if (!res.ok) {
-    //             throw new Error(`Failed to fetch comments: ${res.statusText}`);
-    //         }
-    //         const data = await res.json();
-    //         console.log("Comments:", data[0].content);
-    //     } catch (error) {
-    //         console.error("Error fetching comments:", error);
-    //     }
-    // }
+    // const filteredComments:string[] = [];
+    const [comments, setComments] = useState<string[]>([]);
+    async function fetchComments() {
+        try {
+            const res = await fetch(import.meta.env.PUBLIC_COMMENTS_API_URL);
+            if (!res.ok) {
+                throw new Error(`Failed to fetch comments: ${res.statusText}`);
+            }
+            const data = await res.json();
+            const filterComments = data.filter((comment: any) => comment.id_img === props.id)
+            const content = filterComments.map((comment: any) => comment.content)
+            console.log(props.id_img);
+            setComments(content);
+        } catch (error) {
+            console.error("Error fetching comments:", error);
+        }
+    }
 
 
-    // useEffect(() => {
-    //     fetchComments();
+    useEffect(() => {
+        fetchComments();
 
-    // }, []);
+    }, []);
 
     const handleComments = () => {
-        
+        // fetchComments();
         const openComments = document.getElementById('openComments') as HTMLButtonElement | null;
         const closeComments = document.getElementById('closeComments') as HTMLButtonElement | null;
-        const comments = document.getElementById('comments') as HTMLDivElement | null;
+        const commentsContainer = document.getElementById('comments') as HTMLDivElement | null;
         if (openComments) {
             openComments.style.display = "block";
-            if (comments) {
-                comments.innerHTML += props.comments;
+            if (commentsContainer) {
+                commentsContainer.innerHTML += comments;
             }
         }
         if (closeComments) {
             closeComments.addEventListener("click", () => {
                 if (openComments) {
-                    if (comments) {
-                        comments.innerHTML = " ";
+                    if (commentsContainer) {
+                        commentsContainer.innerHTML = " ";
                     }
                     openComments.style.display = "none";
                 }

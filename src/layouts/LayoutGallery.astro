@@ -5,15 +5,27 @@ import Imgs from "../components/Imgs";
 interface Props {
   sectionTitle: string;
 }
-
+const links = [
+  { href: "/", text: "HOME" },
+  { href: "/cinema", text: "CINEMA" },
+  { href: "/tv", text: "TV" },
+  { href: "/comic", text: "COMIC" },
+  { href: "/others", text: "OTHERS" },
+];
 const { sectionTitle } = Astro.props;
+
+const filterLinks = links.filter(
+  (link) => link.text !== Astro.props.sectionTitle
+);
 ---
 
 <Layout title="the traces of terror">
   <div class="galleryHeader">
     <h1>{sectionTitle}</h1>
+    <div class="links">
+      {filterLinks.map((link) => <a href={link.href}>{link.text}</a>)}
+    </div>
     <div class="controlButtons">
-      <a href="/" class="back-button">BACK</a>
       <button class="fileUpload custom-file-upload" id="fileUp"
         >UPLOAD IMAGE</button
       >
@@ -93,6 +105,21 @@ const { sectionTitle } = Astro.props;
 
   .galleryHeader a {
     text-decoration: none;
+    color: white;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: black;
+  }
+
+  .links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  .links a {
+    margin: 0 1rem;
+    font-family: "Fright";
     color: white;
     -webkit-text-stroke-width: 0.5px;
     -webkit-text-stroke-color: black;
@@ -196,9 +223,9 @@ const { sectionTitle } = Astro.props;
     width: 140px;
   }
 
-   @media (max-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2),
-  (max-width: 1024px) and (orientation: landscape) and (min-resolution: 192dpi) {
-    .galleryHeader{
+  @media (max-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2),
+    (max-width: 1024px) and (orientation: landscape) and (min-resolution: 192dpi) {
+    .galleryHeader {
       position: static;
     }
   }

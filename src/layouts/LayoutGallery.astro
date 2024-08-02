@@ -72,6 +72,9 @@ const filterLinks = links.filter(
     </div>
   </div>
   <div class="commentsContainer" id="openComments">
+    <div class="comments">
+      
+    </div>
     <div class="commentsForm">
       <label for="comments">Write your comment:</label>
       <textarea name="comments" id="" rows="10" cols="40"></textarea>
@@ -150,8 +153,15 @@ const filterLinks = links.filter(
     background-color: rgba(19, 21, 26, 0.9);
     padding: 2rem;
     border-radius: 10px;
-    z-index: 1000;
+    z-index: 4000;
+    /* overflow-y: scroll;
+    height: 50vh; */
   }
+  /* .comments{
+    overflow-y: scroll;
+    height: 50vh;
+    
+  } */
   #file-upload {
     display: none;
   }
@@ -222,11 +232,11 @@ const filterLinks = links.filter(
     margin-top: 20px;
     width: 140px;
   }
- @media (max-width: 480px){
-  .galleryHeader h1{
-    font-size: 1.5rem;
+  @media (max-width: 480px) {
+    .galleryHeader h1 {
+      font-size: 1.5rem;
+    }
   }
- }
   @media (max-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2),
     (max-width: 1024px) and (orientation: landscape) and (min-resolution: 192dpi) {
     .galleryHeader {

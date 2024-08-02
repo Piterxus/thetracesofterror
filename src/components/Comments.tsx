@@ -12,7 +12,7 @@ export default function Comments() {
                 throw new Error(`Failed to fetch comments: ${res.statusText}`);
             }
             const data = await res.json();
-            console.log("Comments:", data);
+            console.log("Comments:", data[0].content);
         } catch (error) {
             console.error("Error fetching comments:", error);
         }

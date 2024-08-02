@@ -189,7 +189,7 @@ export default function Imgs() {
                             )}
 
                         </div>
-                        <Comments />
+                        {/* <Comments /> */}
                     </div>
                 </div>
             ))}

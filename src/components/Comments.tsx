@@ -15,7 +15,7 @@ export default function Comments(props: any) {
             const data = await res.json();
             const filterComments = data.filter((comment: any) => comment.id_img === props.id)
             const content = filterComments.map((comment: any) => comment.content)
-            console.log(props.id_img);
+            console.log(props.id);
             setComments(content);
         } catch (error) {
             console.error("Error fetching comments:", error);

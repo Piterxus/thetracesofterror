@@ -37,33 +37,33 @@ export default function Imgs() {
             console.error("Error fetching images:", error);
         }
     }
-    async function fetchComments() {
-        try {
-            const res = await fetch(import.meta.env.PUBLIC_COMMENTS_API_URL);
-            if (!res.ok) {
-                throw new Error(`Failed to fetch comments: ${res.statusText}`);
-            }
-            const data = await res.json();
-            const filterComments = data.filter((comment: any) => comment.id_img === 2)
-            const content = filterComments.map((comment: any) => comment.content)
-            setComments(content);
-            console.log("Filtered comments:", filterComments);
-            console.log("Content:", content);
-            console.log("Comments:", data);
-        } catch (error) {
-            console.error("Error fetching comments:", error);
-        }
-    }
+    // async function fetchComments() {
+    //     try {
+    //         const res = await fetch(import.meta.env.PUBLIC_COMMENTS_API_URL);
+    //         if (!res.ok) {
+    //             throw new Error(`Failed to fetch comments: ${res.statusText}`);
+    //         }
+    //         const data = await res.json();
+    //         const filterComments = data.filter((comment: any) => comment.id_img === 2)
+    //         const content = filterComments.map((comment: any) => comment.content)
+    //         setComments(content);
+    //         console.log("Filtered comments:", filterComments);
+    //         console.log("Content:", content);
+    //         console.log("Comments:", data);
+    //     } catch (error) {
+    //         console.error("Error fetching comments:", error);
+    //     }
+    // }
 
     useEffect(() => {
         fetchImgs();
-        fetchComments();
+        // fetchComments();
+        //¿Sirve esta función para algo?
+        // const handleImageUploaded = () => {
+        //     fetchImgs();
+        // };
 
-        const handleImageUploaded = () => {
-            fetchImgs();
-        };
-
-        document.addEventListener('imageUploaded', handleImageUploaded);
+        // document.addEventListener('imageUploaded', handleImageUploaded);
 
         const fileUpload = document.getElementById('file-upload') as HTMLInputElement | null;
         const uploaderInput = document.querySelector('input[name="uploaded"]') as HTMLInputElement | null;
@@ -122,9 +122,9 @@ export default function Imgs() {
             });
         }
 
-        return () => {
-            document.removeEventListener('imageUploaded', handleImageUploaded);
-        };
+        // return () => {
+        //     document.removeEventListener('imageUploaded', handleImageUploaded);
+        // };
     }, []);
 
 

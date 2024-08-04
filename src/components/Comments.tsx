@@ -78,8 +78,8 @@ export default function Comments(props: any) {
     return (
         <div>
             <div onClick={handleComments} className={styles.imagesComments}>
-                <img className={styles.icon} src={commentsIcon} alt="Comments icon" />
-                <img className={styles.comic} src={comic} alt="Image with message to encourage commenting" />
+                <img className={styles.icon} src={commentsIcon} alt="Comments icon" id="icon" />
+                <img className={styles.comic} src={comic} alt="Image with message to encourage commenting" id="comic"/>
             </div>
             <div id={`comments-${props.id}`} className={styles.commentsSection} style={{ display: 'none' }}>
                 <textarea name="comments" placeholder="Write your comment here..."></textarea>

@@ -72,12 +72,13 @@ const filterLinks = links.filter(
     </div>
   </div>
   <div class="commentsContainer" id="openComments">
-    <div id="comments" class="commentsClass">
-      
-    </div>
+    <div id="comments" class="commentsClass"></div>
     <div class="commentsForm">
       <label for="comments">Write your comment:</label>
       <textarea name="comments" id="" rows="10" cols="40"></textarea>
+      <label for="author">AUTHOR:</label>
+      <input type="text" name="author" placeholder="Author (optional)">
+      <button id="comment-upload" class="custom-file-upload">POST</button>
       <button class="custom-file-upload" id="closeComments">CLOSE</button>
     </div>
   </div>

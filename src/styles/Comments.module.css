@@ -1,4 +1,4 @@
-.commentsContainer{
+.imagesComments {
     position: relative;
 }
 
@@ -15,12 +15,19 @@
     animation: fadeIn 5s infinite;
 }
 
+.commentsSection {
+    
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid yellow;
+}
+
 @keyframes fadeIn {
     0% {
         opacity: 0;
     }
+
     100% {
         opacity: 1;
     }
 }
-

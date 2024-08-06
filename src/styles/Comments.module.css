@@ -59,6 +59,7 @@
     border-top: 0.5px solid #84878b;
     border-bottom: 0.5px solid #84878b;
     font-family: "Fright";
+    white-space: pre-wrap;
     /* width: 25vw; */
 
 }

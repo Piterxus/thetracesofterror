@@ -3,6 +3,7 @@ import styles from '../styles/Comments.module.css';
 const commentsIcon = "/imgs/vampire-teeth.svg";
 const comic = "/imgs/comic.png";
 const closeCommentsImg = '/imgs/closeComments.png';
+const listVignette = '/favicon.svg';
 
 export default function Comments(props: any) {
     const [comments, setComments] = useState<string[]>([]);
@@ -114,7 +115,7 @@ export default function Comments(props: any) {
                         </div>
                         <div className={styles.commentsList}>
                             {comments.map((comment, index) => (
-                                <p key={index}>{comment}</p>
+                                <div> <img src={listVignette} alt="Vignette of list" className={styles.listVignette} /> <p key={index}>{comment}</p></div>
                             ))}
                         </div>
                         <div className={styles.controlComments}>

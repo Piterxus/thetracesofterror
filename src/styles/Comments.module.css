@@ -58,10 +58,14 @@
     height: 80%;
     border-top: 0.5px solid #84878b;
     border-bottom: 0.5px solid #84878b;
+    font-family: "Fright";
     /* width: 25vw; */
 
 }
 
+.listVignette{
+    width: 15px;
+}
 ::-webkit-scrollbar {
     display: none;
 }
@@ -99,6 +103,7 @@ textarea{
     color: white;
     border: none;
     resize: none;
+    font-family: "Fright";
 }
 input[type="submit"] {
     background-color: transparent;
@@ -121,6 +126,7 @@ input[type="text"] {
     border: none;
     border-left: 1px solid white;
     resize: none;
+    font-family: "Fright";
     
 }
 
@@ -132,6 +138,7 @@ button{
     border-radius: 5px;
     cursor: pointer;
     border: none;
+    font-family: "Fright";
 }
 
 @keyframes fadeIn {

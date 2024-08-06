@@ -1,5 +1,6 @@
 .imagesComments {
     position: relative;
+
 }
 
 .icon {
@@ -36,7 +37,7 @@
 
 }
 
-.flexImg{
+.flexImg {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -50,12 +51,36 @@
     border-radius: 5px;
 }
 
-.commentsList{
+.commentsList {
     overflow-y: scroll;
-    
+    width: 100%;
+    /* width: 25vw; */
+
 }
+
 ::-webkit-scrollbar {
     display: none;
+}
+
+.controlCommentsWImg {
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    flex-direction: column;
+    /* margin-top: 10px; */
+    background-color: rgba(39, 43, 53, 0.9);
+    width: 50vw;
+    height: 100%;
+    position: relative;
+}
+
+.controlComments {
+    position: absolute;
+    bottom: 0px;
+    
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
 }
 
 @keyframes fadeIn {

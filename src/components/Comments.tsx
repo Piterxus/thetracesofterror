@@ -85,8 +85,11 @@ export default function Comments(props: any) {
         if (commentsContainer) {
             commentsContainer.style.display = 'none';
             if (body) {
-                body.style.overflow = 'auto';
+                body.style.overflow = commentsContainer.style.display === 'flex' ? 'hidden' : 'auto';
             }
+            // if (body) {
+            //     body.style.overflow = 'auto';
+            // }
         }
     }
 
@@ -103,19 +106,26 @@ export default function Comments(props: any) {
                 <div>
 
 
-                    <div onClick={closeComments} className={styles.imagesComments}>
-                        <img className={styles.icon} src={commentsIcon} alt="Comments icon" id="icon" />
-                        <img className={styles.comic} src={closeCommentsImg} alt="Image with message to encourage commenting" />
+
+                    <div className={styles.controlCommentsWImg}>
+                        <div onClick={closeComments} className={styles.imagesComments}>
+                            <img className={styles.icon} src={commentsIcon} alt="Comments icon" id="icon" />
+                            <img className={styles.comic} src={closeCommentsImg} alt="Image with message to encourage commenting" />
+                        </div>
+                        <div className={styles.commentsList}>
+                            {comments.map((comment, index) => (
+                                <p key={index}>{comment}</p>
+                            ))}
+                        </div>
+                        <div className={styles.controlComments}>
+                            <textarea name="comments" placeholder="Write your comment here..."></textarea>
+                            <input name="author" placeholder="Your name" />
+                            <button id={`comment-upload-${props.id}`}>Submit</button>
+                        </div>
+                       
                     </div>
-                    <textarea name="comments" placeholder="Write your comment here..."></textarea>
-                    <input name="author" placeholder="Your name" />
-                    <button id={`comment-upload-${props.id}`}>Submit</button>
                 </div>
-                <div className={styles.commentsList}>
-                    {comments.map((comment, index) => (
-                        <p key={index}>{comment}</p>
-                    ))}
-                </div>
+              
             </div>
         </div>
     );

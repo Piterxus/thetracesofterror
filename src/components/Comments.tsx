@@ -68,13 +68,10 @@ export default function Comments(props: any) {
     }, [props.id]);
 
     const handleComments = () => {
-        // const imagesComments = document.querySelector(`${styles.imagesComments}`) as HTMLDivElement | null;
+        
         const commentsContainer = document.getElementById(`comments-${props.id}`) as HTMLDivElement | null;
         const body = document.querySelector('body') as HTMLBodyElement | null;
-        // imagesComments?.classList.add(styles.active);
-        // if (imagesComments) {
-        //     imagesComments.style.display = "none";
-        // }
+ 
         if (commentsContainer) {
             commentsContainer.style.display = commentsContainer.style.display === 'flex' ? 'none' : 'flex';
             if (body) {
@@ -89,12 +86,16 @@ export default function Comments(props: any) {
         if (commentsContainer) {
             commentsContainer.style.display = 'none';
             if (body) {
-                body.style.overflow = commentsContainer.style.display === 'flex' ? 'hidden' : 'auto';
+                body.style.overflow = commentsContainer.style.display === 'none' ? 'auto' : 'hidden';
             }
+          
             // if (body) {
             //     body.style.overflow = 'auto';
             // }
         }
+        // if (body) {
+        //     body.style.overflow = 'auto';
+        // }
     }
 
     return (

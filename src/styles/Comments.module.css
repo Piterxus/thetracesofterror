@@ -54,6 +54,7 @@
 .commentsList {
     overflow-y: scroll;
     width: 100%;
+    height: 80%;
     /* width: 25vw; */
 
 }

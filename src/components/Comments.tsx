@@ -7,6 +7,7 @@ const listVignette = '/favicon.svg';
 
 export default function Comments(props: any) {
     const [comments, setComments] = useState<string[]>([]);
+    const [author, setAuthor] = useState<string>("");
 
     async function fetchComments() {
         try {
@@ -17,6 +18,8 @@ export default function Comments(props: any) {
             const data = await res.json();
             const filterComments = data.filter((comment: any) => comment.id_img === props.id);
             const content = filterComments.map((comment: any) => comment.content);
+            const author = filterComments.map((comment: any) => comment.author);
+            setAuthor(author);
             setComments(content);
         } catch (error) {
             console.error("Error fetching comments:", error);
@@ -115,7 +118,7 @@ export default function Comments(props: any) {
                         </div>
                         <div className={styles.commentsList}>
                             {comments.map((comment, index) => (
-                                <div> <img src={listVignette} alt="Vignette of list" className={styles.listVignette} /> <p key={index}>{comment}</p></div>
+                                <div> <img src={listVignette} alt="Vignette of list" className={styles.listVignette} /> <span>{author[index] != "" && (author[index]) || "Anonymous"}</span> <p key={index}>{comment}</p></div>
                             ))}
                         </div>
                         <div className={styles.controlComments}>

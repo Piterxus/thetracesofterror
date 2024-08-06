@@ -2,7 +2,7 @@ import { useEffect, useState } from 'preact/hooks';
 import styles from '../styles/Comments.module.css';
 const commentsIcon = "/imgs/vampire-teeth.svg";
 const comic = "/imgs/comic.png";
-const closeCommentsImg  = '/imgs/closeComments.png';
+const closeCommentsImg = '/imgs/closeComments.png';
 
 export default function Comments(props: any) {
     const [comments, setComments] = useState<string[]>([]);
@@ -73,15 +73,15 @@ export default function Comments(props: any) {
         // }
         if (commentsContainer) {
             commentsContainer.style.display = commentsContainer.style.display === 'flex' ? 'none' : 'flex';
-          if (body) {
-            body.style.overflow = commentsContainer.style.display === 'flex' ? 'hidden' : 'auto';
-          }
+            if (body) {
+                body.style.overflow = commentsContainer.style.display === 'flex' ? 'hidden' : 'auto';
+            }
         }
     };
 
     const closeComments = () => {
         const commentsContainer = document.getElementById(`comments-${props.id}`) as HTMLDivElement | null;
-        const body = document.querySelector('body') as HTMLBodyElement | null;  
+        const body = document.querySelector('body') as HTMLBodyElement | null;
         if (commentsContainer) {
             commentsContainer.style.display = 'none';
             if (body) {
@@ -94,22 +94,23 @@ export default function Comments(props: any) {
         <div>
             <div onClick={handleComments} className={styles.imagesComments}>
                 <img className={styles.icon} src={commentsIcon} alt="Comments icon" id="icon" />
-                <img className={styles.comic} src={comic} alt="Image with message to encourage commenting" id="comic"/>
+                <img className={styles.comic} src={comic} alt="Image with message to encourage commenting" id="comic" />
             </div>
             <div id={`comments-${props.id}`} className={styles.commentsSection} style={{ display: 'none' }}>
                 <div className={styles.flexImg}>
                     <img src={props.src} alt="" className={styles.imgComment} />
                 </div>
-             <div>
-                    <textarea name="comments" placeholder="Write your comment here..."></textarea>
-                    <input name="author" placeholder="Your name" />
-                    <button id={`comment-upload-${props.id}`}>Submit</button>
-                    <p onClick={closeComments} style={{ color: 'white', cursor: 'pointer' }}>X</p>
+                <div>
+
+
                     <div onClick={closeComments} className={styles.imagesComments}>
                         <img className={styles.icon} src={commentsIcon} alt="Comments icon" id="icon" />
                         <img className={styles.comic} src={closeCommentsImg} alt="Image with message to encourage commenting" />
                     </div>
-             </div>
+                    <textarea name="comments" placeholder="Write your comment here..."></textarea>
+                    <input name="author" placeholder="Your name" />
+                    <button id={`comment-upload-${props.id}`}>Submit</button>
+                </div>
                 <div className={styles.commentsList}>
                     {comments.map((comment, index) => (
                         <p key={index}>{comment}</p>

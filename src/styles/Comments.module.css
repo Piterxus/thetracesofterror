@@ -31,7 +31,7 @@
     z-index: 4000;
     width: 100%;
     height: 100%;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
 
 
 }
@@ -50,6 +50,13 @@
     border-radius: 5px;
 }
 
+.commentsList{
+    overflow-y: scroll;
+    
+}
+::-webkit-scrollbar {
+    display: none;
+}
 
 @keyframes fadeIn {
     0% {

@@ -75,6 +75,13 @@ export default function Comments(props: any) {
         }
     };
 
+    const closeComments = () => {
+        const commentsContainer = document.getElementById(`comments-${props.id}`) as HTMLDivElement | null;
+        if (commentsContainer) {
+            commentsContainer.style.display = 'none';
+        }
+    }
+
     return (
         <div>
             <div onClick={handleComments} className={styles.imagesComments}>
@@ -82,9 +89,11 @@ export default function Comments(props: any) {
                 <img className={styles.comic} src={comic} alt="Image with message to encourage commenting" id="comic"/>
             </div>
             <div id={`comments-${props.id}`} className={styles.commentsSection} style={{ display: 'none' }}>
+               
                 <textarea name="comments" placeholder="Write your comment here..."></textarea>
                 <input name="author" placeholder="Your name" />
                 <button id={`comment-upload-${props.id}`}>Submit</button>
+                <p onClick={closeComments} style={{ color: 'white', cursor: 'pointer' }}>X</p>
                 <div className={styles.commentsList}>
                     {comments.map((comment, index) => (
                         <p key={index}>{comment}</p>

@@ -65,20 +65,27 @@ export default function Comments(props: any) {
     const handleComments = () => {
         // const imagesComments = document.querySelector(`${styles.imagesComments}`) as HTMLDivElement | null;
         const commentsContainer = document.getElementById(`comments-${props.id}`) as HTMLDivElement | null;
-        
+        const body = document.querySelector('body') as HTMLBodyElement | null;
         // imagesComments?.classList.add(styles.active);
         // if (imagesComments) {
         //     imagesComments.style.display = "none";
         // }
         if (commentsContainer) {
             commentsContainer.style.display = commentsContainer.style.display === 'block' ? 'none' : 'block';
+          if (body) {
+            body.style.overflow = commentsContainer.style.display === 'block' ? 'hidden' : 'auto';
+          }
         }
     };
 
     const closeComments = () => {
         const commentsContainer = document.getElementById(`comments-${props.id}`) as HTMLDivElement | null;
+        const body = document.querySelector('body') as HTMLBodyElement | null;  
         if (commentsContainer) {
             commentsContainer.style.display = 'none';
+            if (body) {
+                body.style.overflow = 'auto';
+            }
         }
     }
 

@@ -200,7 +200,7 @@ export default function Imgs() {
                             )}
 
                         </div>
-                        <Comments comments={comments} id={id_img[index]}/>
+                        <Comments comments={comments} id={id_img[index]} src={`${import.meta.env.PUBLIC_IMAGES_URL}${img}`}/>
                     </div>
                 </div>
             ))}

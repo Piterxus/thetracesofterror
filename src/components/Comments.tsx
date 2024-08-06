@@ -2,6 +2,7 @@ import { useEffect, useState } from 'preact/hooks';
 import styles from '../styles/Comments.module.css';
 const commentsIcon = "/imgs/vampire-teeth.svg";
 const comic = "/imgs/comic.png";
+const closeCommentsImg  = '/imgs/closeComments.png';
 
 export default function Comments(props: any) {
     const [comments, setComments] = useState<string[]>([]);
@@ -71,9 +72,9 @@ export default function Comments(props: any) {
         //     imagesComments.style.display = "none";
         // }
         if (commentsContainer) {
-            commentsContainer.style.display = commentsContainer.style.display === 'block' ? 'none' : 'block';
+            commentsContainer.style.display = commentsContainer.style.display === 'flex' ? 'none' : 'flex';
           if (body) {
-            body.style.overflow = commentsContainer.style.display === 'block' ? 'hidden' : 'auto';
+            body.style.overflow = commentsContainer.style.display === 'flex' ? 'hidden' : 'auto';
           }
         }
     };
@@ -96,11 +97,19 @@ export default function Comments(props: any) {
                 <img className={styles.comic} src={comic} alt="Image with message to encourage commenting" id="comic"/>
             </div>
             <div id={`comments-${props.id}`} className={styles.commentsSection} style={{ display: 'none' }}>
-               
-                <textarea name="comments" placeholder="Write your comment here..."></textarea>
-                <input name="author" placeholder="Your name" />
-                <button id={`comment-upload-${props.id}`}>Submit</button>
-                <p onClick={closeComments} style={{ color: 'white', cursor: 'pointer' }}>X</p>
+                <div className={styles.flexImg}>
+                    <img src={props.src} alt="" className={styles.imgComment} />
+                </div>
+             <div>
+                    <textarea name="comments" placeholder="Write your comment here..."></textarea>
+                    <input name="author" placeholder="Your name" />
+                    <button id={`comment-upload-${props.id}`}>Submit</button>
+                    <p onClick={closeComments} style={{ color: 'white', cursor: 'pointer' }}>X</p>
+                    <div onClick={closeComments} className={styles.imagesComments}>
+                        <img className={styles.icon} src={commentsIcon} alt="Comments icon" id="icon" />
+                        <img className={styles.comic} src={closeCommentsImg} alt="Image with message to encourage commenting" />
+                    </div>
+             </div>
                 <div className={styles.commentsList}>
                     {comments.map((comment, index) => (
                         <p key={index}>{comment}</p>

@@ -68,10 +68,10 @@ export default function Comments(props: any) {
     }, [props.id]);
 
     const handleComments = () => {
-        
+
         const commentsContainer = document.getElementById(`comments-${props.id}`) as HTMLDivElement | null;
         const body = document.querySelector('body') as HTMLBodyElement | null;
- 
+
         if (commentsContainer) {
             commentsContainer.style.display = commentsContainer.style.display === 'flex' ? 'none' : 'flex';
             if (body) {
@@ -88,7 +88,7 @@ export default function Comments(props: any) {
             if (body) {
                 body.style.overflow = commentsContainer.style.display === 'none' ? 'auto' : 'hidden';
             }
-          
+
             // if (body) {
             //     body.style.overflow = 'auto';
             // }
@@ -128,10 +128,10 @@ export default function Comments(props: any) {
                             {/* <input id={`comment-upload-${props.id}`} type="submit" value="Post" /> */}
                             <button id={`comment-upload-${props.id}`}>Post</button>
                         </div>
-                       
+
                     </div>
                 </div>
-              
+
             </div>
         </div>
     );

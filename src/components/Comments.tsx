@@ -124,7 +124,7 @@ export default function Comments(props: any) {
                         </div>
                         <div className={styles.controlComments}>
                             <textarea name="comments" placeholder="Write your comment here..."></textarea>
-                            <input type="text" name="author" placeholder="Your name" />
+                            <input type="text" name="author" placeholder="Author (optional)" />
                             {/* <input id={`comment-upload-${props.id}`} type="submit" value="Post" /> */}
                             <button id={`comment-upload-${props.id}`}>Post</button>
                         </div>

@@ -7,11 +7,15 @@ import Comments from "./Comments";
 
 
 
+
+
 export default function Imgs() {
     const [imgs, setImgs] = useState<string[]>([]);
     const [uploadedImgs, setUploadedImgs] = useState<string[]>([]);
     const [description, setDescription] = useState<string>("");
+    const [id_img, setId_img] = useState<string>("");
     const [popupMessage, setPopupMessage] = useState<string | null>(null);
+    const [comments, setComments] = useState<string[]>([]);
 
 
     async function fetchImgs() {
@@ -21,12 +25,14 @@ export default function Imgs() {
                 throw new Error(`Failed to fetch images: ${res.statusText}`);
             }
             const data = await res.json();
+           
             const rawPath = window.location.pathname;
             const cleanPath = rawPath.replace(/^\/|\/$/g, '');
             const filteredData = data.filter((img: any) => img.type === cleanPath);
             setImgs(filteredData.map((img: any) => img.path));
             setUploadedImgs(filteredData.map((img: any) => img.uploaded));
             setDescription(filteredData.map((img: any) => img.description));
+            setId_img(filteredData.map((img: any) => img.id));
         } catch (error) {
             console.error("Error fetching images:", error);
         }
@@ -38,7 +44,12 @@ export default function Imgs() {
     //             throw new Error(`Failed to fetch comments: ${res.statusText}`);
     //         }
     //         const data = await res.json();
-    //        console.log("Comments:",data);
+    //         const filterComments = data.filter((comment: any) => comment.id_img === 2)
+    //         const content = filterComments.map((comment: any) => comment.content)
+    //         setComments(content);
+    //         console.log("Filtered comments:", filterComments);
+    //         console.log("Content:", content);
+    //         console.log("Comments:", data);
     //     } catch (error) {
     //         console.error("Error fetching comments:", error);
     //     }
@@ -47,12 +58,12 @@ export default function Imgs() {
     useEffect(() => {
         fetchImgs();
         // fetchComments();
+        //¿Sirve esta función para algo?
+        // const handleImageUploaded = () => {
+        //     fetchImgs();
+        // };
 
-        const handleImageUploaded = () => {
-            fetchImgs();
-        };
-
-        document.addEventListener('imageUploaded', handleImageUploaded);
+        // document.addEventListener('imageUploaded', handleImageUploaded);
 
         const fileUpload = document.getElementById('file-upload') as HTMLInputElement | null;
         const uploaderInput = document.querySelector('input[name="uploaded"]') as HTMLInputElement | null;
@@ -111,9 +122,9 @@ export default function Imgs() {
             });
         }
 
-        return () => {
-            document.removeEventListener('imageUploaded', handleImageUploaded);
-        };
+        // return () => {
+        //     document.removeEventListener('imageUploaded', handleImageUploaded);
+        // };
     }, []);
 
 
@@ -189,7 +200,7 @@ export default function Imgs() {
                             )}
 
                         </div>
-                        <Comments />
+                        <Comments comments={comments} id={id_img[index]} src={`${import.meta.env.PUBLIC_IMAGES_URL}${img}`}/>
                     </div>
                 </div>
             ))}

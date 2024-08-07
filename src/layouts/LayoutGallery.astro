@@ -71,13 +71,7 @@ const filterLinks = links.filter(
       <button class="custom-file-upload" id="close">CLOSE</button>
     </div>
   </div>
-  <div class="commentsContainer" id="openComments">
-    <div class="commentsForm">
-      <label for="comments">Write your comment:</label>
-      <textarea name="comments" id="" rows="10" cols="40"></textarea>
-      <button class="custom-file-upload" id="closeComments">CLOSE</button>
-    </div>
-  </div>
+
 </Layout>
 
 <style>
@@ -137,8 +131,7 @@ const filterLinks = links.filter(
     margin-top: 1rem;
     width: 10vw;
   }
-  .fileUploadContainer,
-  .commentsContainer {
+  .fileUploadContainer {
     display: none;
     justify-content: center;
     align-items: center;
@@ -150,8 +143,10 @@ const filterLinks = links.filter(
     background-color: rgba(19, 21, 26, 0.9);
     padding: 2rem;
     border-radius: 10px;
-    z-index: 1000;
+    z-index: 4000;
+
   }
+
   #file-upload {
     display: none;
   }
@@ -172,16 +167,13 @@ const filterLinks = links.filter(
   .custom-file-upload:hover {
     background-color: #3a3d44;
   }
-  .imgForm,
-  .commentsForm {
+  .imgForm {
     margin: 10px 0;
     display: flex;
     flex-direction: column;
     width: 100%;
   }
-  .commentsForm {
-    align-items: center;
-  }
+
 
   label {
     display: inline-block;
@@ -192,15 +184,16 @@ const filterLinks = links.filter(
   input,
   select {
     padding: 0.5rem;
-    font-size: 1rem;
-    font-family: "Fright";
+    font-size: 1.5rem;
+    /* font-family: "Fright"; */
     color: black;
     border-radius: 5px;
     flex: 1;
   }
-  .commentsForm label {
-    width: 150px;
+  select{
+    font-family: "Fright";
   }
+
   .labelFileUpload {
     margin-top: 20px;
     height: 15px;
@@ -218,15 +211,12 @@ const filterLinks = links.filter(
     margin-top: 20px;
     width: 140px;
   }
-  #closeComments {
-    margin-top: 20px;
-    width: 140px;
+
+  @media (max-width: 480px) {
+    .galleryHeader h1 {
+      font-size: 1.5rem;
+    }
   }
- @media (max-width: 480px){
-  .galleryHeader h1{
-    font-size: 1.5rem;
-  }
- }
   @media (max-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2),
     (max-width: 1024px) and (orientation: landscape) and (min-resolution: 192dpi) {
     .galleryHeader {

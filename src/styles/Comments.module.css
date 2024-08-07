@@ -74,6 +74,7 @@
     border-bottom: 0.5px solid #84878b; */
     /* font-family: "Fright"; */
     white-space: pre-wrap;
+    font-size: 1.5rem;
    
 
 }
@@ -124,8 +125,9 @@ textarea{
     color: white;
     border: none;
     resize: none;
-    font-family: "Fright";
+    /* font-family: "Fright"; */
     border-bottom: 1px solid white;
+    font-size: 1.5rem;
   
 }
 
@@ -141,8 +143,8 @@ input[type="text"] {
     border: none;
     border-bottom: 1px solid white;
     resize: none;
-    font-family: "Fright";
-   
+    /* font-family: "Fright"; */
+    font-size: 1.5rem;
     /* margin-top: 10px; */
     
 }

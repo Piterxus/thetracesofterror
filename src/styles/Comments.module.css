@@ -1,5 +1,6 @@
 .commentsContainer{
     height: 90vh;
+   
 }
 
 
@@ -25,6 +26,7 @@
 
     display: flex;
     justify-content: space-around;
+    align-items: center;
     /* align-items: center; */
     /* flex-direction: column; */
     position: fixed;
@@ -36,7 +38,7 @@
     border-radius: 10px;
     z-index: 4000;
     width: 100%;
-    height: 100%;
+    height:  95vh;
    
     /* overflow-y: scroll; */
 
@@ -48,6 +50,9 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    
+    width: 50vw;
+    padding: 20px;
 }
 
 .imgComment {
@@ -55,7 +60,8 @@
     height: 95vh;
     object-fit: fill;
     border-radius: 5px;
-    margin-right: 20px;
+    
+    /* margin-right: 10px; */
 }
 
 .commentsList {
@@ -90,46 +96,42 @@ span{
     /* margin-top: 10px; */
     /* background-color: rgba(39, 43, 53, 0.9); */
     width: 50vw;
-    height: 100%;
+    height:  95vh;
     position: relative;
+  
+    padding: 20px;
    
 }
 
 .controlComments {
     position: absolute;
     bottom: 0px;
-    
+    /* border:1px solid white; */
     width: 100%;
     display: flex;
-    /* justify-content: space-around; */
-    /* margin-bottom: 10px; */
+    justify-content: space-around;
+    margin-bottom: 20px;
    
 }
 
 textarea{
-    width: 80%;
-    /* height: 100px; */
+    width: 60%;
+    height: 30px;
     border-radius: 5px;
     padding: 10px;
-    margin-top: 10px;
+    /* margin-top: 10px; */
     background-color: rgba(39, 43, 53, 0.9);
     color: white;
     border: none;
     resize: none;
     font-family: "Fright";
+    border-bottom: 1px solid white;
+  
 }
-input[type="submit"] {
-    background-color: transparent;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    border: none;
-}
+
 input[type="text"] {
-    width: 80%;
-    /* height: 100px; */
+    /* width: 50%; */
+    height: 30px;
     border-radius: 5px;
     padding: 10px;
     /* margin-top: 10px;
@@ -137,9 +139,11 @@ input[type="text"] {
     background-color: rgba(39, 43, 53, 0.9);
     color: white;
     border: none;
-    border-left: 1px solid white;
+    border-bottom: 1px solid white;
     resize: none;
     font-family: "Fright";
+   
+    /* margin-top: 10px; */
     
 }
 

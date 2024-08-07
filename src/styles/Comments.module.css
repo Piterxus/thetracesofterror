@@ -1,9 +1,7 @@
-.commentsContainer{
+.commentsContainer {
     height: 90vh;
-   
+
 }
-
-
 
 .imagesComments {
     position: relative;
@@ -28,8 +26,6 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    /* align-items: center; */
-    /* flex-direction: column; */
     position: fixed;
     top: 50%;
     left: 50%;
@@ -39,10 +35,7 @@
     border-radius: 10px;
     z-index: 4000;
     width: 100%;
-    height:  95vh;
-   
-    /* overflow-y: scroll; */
-
+    height: 95vh;
 
 }
 
@@ -51,7 +44,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    
+
     width: 50vw;
     padding: 20px;
 }
@@ -61,8 +54,8 @@
     height: 95vh;
     object-fit: fill;
     border-radius: 5px;
-    
-    /* margin-right: 10px; */
+
+
 }
 
 .commentsList {
@@ -71,86 +64,72 @@
     width: 100%;
     height: 80%;
     max-height: 100vh;
-    /* border-top: 0.5px solid #84878b;
-    border-bottom: 0.5px solid #84878b; */
-    /* font-family: "Fright"; */
     white-space: pre-wrap;
     font-size: 1.5rem;
-   
+
 
 }
-span{
+
+span {
     font-family: "Fright";
-    
+
 }
-.listVignette{
+
+.listVignette {
     width: 15px;
 }
-.commentsList::-webkit-scrollbar{
+
+.commentsList::-webkit-scrollbar {
     display: none;
 }
 
 .controlCommentsWImg {
     display: flex;
-    /* justify-content: space-between; */
     align-items: center;
     flex-direction: column;
-    /* margin-top: 10px; */
-    /* background-color: rgba(39, 43, 53, 0.9); */
     width: 50vw;
-    height:  95vh;
+    height: 95vh;
     position: relative;
-  
     padding: 20px;
-   
+
 }
 
 .controlComments {
     position: absolute;
     bottom: 0px;
-    /* border:1px solid white; */
     width: 100%;
     display: flex;
     justify-content: space-around;
     margin-bottom: 20px;
-   
+
 }
 
-textarea{
+textarea {
     width: 60%;
     height: 30px;
     border-radius: 5px;
     padding: 10px;
-    /* margin-top: 10px; */
     background-color: rgba(39, 43, 53, 0.9);
     color: white;
     border: none;
     resize: none;
-    /* font-family: "Fright"; */
     border-bottom: 1px solid white;
     font-size: 1.5rem;
-  
 }
 
 input[type="text"] {
-    /* width: 50%; */
     height: 30px;
     border-radius: 5px;
     padding: 10px;
-    /* margin-top: 10px;
-    margin-left: 10px; */
     background-color: rgba(39, 43, 53, 0.9);
     color: white;
     border: none;
     border-bottom: 1px solid white;
     resize: none;
-    /* font-family: "Fright"; */
     font-size: 1.5rem;
-    /* margin-top: 10px; */
-    
 }
 
-button{
+button {
     background-color: transparent;
     color: white;
     border: none;
@@ -171,110 +150,110 @@ button{
     }
 }
 
-@media (max-width: 480px){
-    .commentsSection{
+@media (max-width: 480px) {
+    .commentsSection {
         flex-direction: column;
         align-items: center;
         height: 100vh;
         width: 100vw;
     }
 
-    .flexImg{
-        display:none;
+    .flexImg {
+        display: none;
     }
-    .commentsList{
+
+    .commentsList {
         width: 100%;
         height: 50vh;
         font-size: 1rem;
     }
-    .controlCommentsWImg{
-     width: 100vw;
-     
-     height: 100vh;
-     padding: 0px;
+
+    .controlCommentsWImg {
+        width: 100vw;
+
+        height: 100vh;
+        padding: 0px;
     }
 
-  
 
 
-    .controlComments{
+
+    .controlComments {
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
-       
+
         height: 25vh;
     }
-    
-    textarea{
+
+    textarea {
         width: 80%;
         height: 30px;
         border-radius: 5px;
         padding: 10px;
-        /* margin-top: 10px; */
         background-color: rgba(39, 43, 53, 0.9);
         color: white;
         border: none;
         resize: none;
-        /* font-family: "Fright"; */
         border-bottom: 1px solid white;
         font-size: 1.2rem;
     }
+
     input[type="text"] {
-      font-size: 1.2rem;
-      width: 80%;
+        font-size: 1.2rem;
+        width: 80%;
     }
 }
 
 @media (max-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2),
-(max-width: 1024px) and (orientation: landscape) and (min-resolution: 192dpi){
-    .flexImg{
-        display:none;
+(max-width: 1024px) and (orientation: landscape) and (min-resolution: 192dpi) {
+    .flexImg {
+        display: none;
     }
-    .commentsList{
+
+    .commentsList {
         font-size: 1rem;
         width: 100vw;
         height: 50vh;
         margin-left: 10px;
-    
+
         padding-left: 20px;
     }
-    .controlComments{
+
+    .controlComments {
         margin-right: 20px;
     }
-    .controlCommentsWImg{
+
+    .controlCommentsWImg {
         width: 100vw;
         height: 100vh;
         padding: 0px;
     }
-    textarea{
+
+    textarea {
         width: 30%;
         height: 30px;
         border-radius: 5px;
         padding: 10px;
-        /* margin-top: 10px; */
         background-color: rgba(39, 43, 53, 0.9);
         color: white;
         border: none;
         resize: none;
-        /* font-family: "Fright"; */
         border-bottom: 1px solid white;
         font-size: 1rem;
     }
+
     input[type="text"] {
-        /* width: 50%; */
         height: 30px;
         border-radius: 5px;
         padding: 10px;
-        /* margin-top: 10px;
-        margin-left: 10px; */
         background-color: rgba(39, 43, 53, 0.9);
         color: white;
         border: none;
         border-bottom: 1px solid white;
         resize: none;
-        /* font-family: "Fright"; */
         font-size: 1rem;
-        /* margin-top: 10px; */
-        
+
+
     }
 }

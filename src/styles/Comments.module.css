@@ -4,6 +4,7 @@
 }
 
 
+
 .imagesComments {
     position: relative;
 
@@ -167,5 +168,113 @@ button{
 
     100% {
         opacity: 1;
+    }
+}
+
+@media (max-width: 480px){
+    .commentsSection{
+        flex-direction: column;
+        align-items: center;
+        height: 100vh;
+        width: 100vw;
+    }
+
+    .flexImg{
+        display:none;
+    }
+    .commentsList{
+        width: 100%;
+        height: 50vh;
+        font-size: 1rem;
+    }
+    .controlCommentsWImg{
+     width: 100vw;
+     
+     height: 100vh;
+     padding: 0px;
+    }
+
+  
+
+
+    .controlComments{
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+       
+        height: 25vh;
+    }
+    
+    textarea{
+        width: 80%;
+        height: 30px;
+        border-radius: 5px;
+        padding: 10px;
+        /* margin-top: 10px; */
+        background-color: rgba(39, 43, 53, 0.9);
+        color: white;
+        border: none;
+        resize: none;
+        /* font-family: "Fright"; */
+        border-bottom: 1px solid white;
+        font-size: 1.2rem;
+    }
+    input[type="text"] {
+      font-size: 1.2rem;
+      width: 80%;
+    }
+}
+
+@media (max-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2),
+(max-width: 1024px) and (orientation: landscape) and (min-resolution: 192dpi){
+    .flexImg{
+        display:none;
+    }
+    .commentsList{
+        font-size: 1rem;
+        width: 100vw;
+        height: 50vh;
+        margin-left: 10px;
+    
+        padding-left: 20px;
+    }
+    .controlComments{
+        margin-right: 20px;
+    }
+    .controlCommentsWImg{
+        width: 100vw;
+        height: 100vh;
+        padding: 0px;
+    }
+    textarea{
+        width: 30%;
+        height: 30px;
+        border-radius: 5px;
+        padding: 10px;
+        /* margin-top: 10px; */
+        background-color: rgba(39, 43, 53, 0.9);
+        color: white;
+        border: none;
+        resize: none;
+        /* font-family: "Fright"; */
+        border-bottom: 1px solid white;
+        font-size: 1rem;
+    }
+    input[type="text"] {
+        /* width: 50%; */
+        height: 30px;
+        border-radius: 5px;
+        padding: 10px;
+        /* margin-top: 10px;
+        margin-left: 10px; */
+        background-color: rgba(39, 43, 53, 0.9);
+        color: white;
+        border: none;
+        border-bottom: 1px solid white;
+        resize: none;
+        /* font-family: "Fright"; */
+        font-size: 1rem;
+        /* margin-top: 10px; */
+        
     }
 }

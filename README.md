@@ -28,23 +28,27 @@ As a huge fan of horror, I wanted to incorporate my passion into this project wh
 
 ## 📦 Database Setup
 
-Ensure you have a database named images with the following fields:
+Ensure you have a database configured with the following tables and fields:
 
+### Table: `img`
 - **id**: Primary key (integer, auto-incrementing)
 - **path**: String (URL or path to the image)
 - **description**: String (optional, a brief description of the image)
 - **title**: String (optional, the title of the image)
 - **type**: String (type or category of the image, e.g., cinema, tv, comic, etc.)
 - **uploaded**: String (the uploader's identifier, e.g., email or username)
+- **created_at**: Timestamp (automatically managed by Laravel)
+- **updated_at**: Timestamp (automatically managed by Laravel)
+- **deleted_at**: Timestamp (automatically managed by Laravel, for soft deletes)
 
-### Laravel Specific Fields
-
-If you are using Laravel, make sure to include the following additional fields in the `images` table:
-
-- **timestamps**: Laravel default fields for tracking created and updated timestamps.
-- **softDeletes**: Laravel default field for implementing soft deletes (optional, used to mark records as deleted without actually removing them from the database).
-
-The `timestamps` and `softDeletes` fields will be automatically managed by Laravel, so you don’t need to manually handle them in your application logic.
+### Table: `comments`
+- **id**: Primary key (integer, auto-incrementing)
+- **id_img**: Integer (foreign key referencing `img.id`)
+- **content**: Text (the content of the comment)
+- **author**: String (the author of the comment)
+- **created_at**: Timestamp (automatically managed by Laravel)
+- **updated_at**: Timestamp (automatically managed by Laravel)
+- **deleted_at**: Timestamp (automatically managed by Laravel, for soft deletes)
 
 ## 🚀 Running the Project Locally
 

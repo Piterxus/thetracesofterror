@@ -93,6 +93,28 @@ export default function Comments(props: any) {
         }
 
     }
+    interface CommentProps {
+        comment: string;
+    }
+    function formatComment(comment:string) {
+    
+        const urlRegex = /(https?:\/\/[^\s]+)/g;
+
+        
+        return comment.split(urlRegex).map((part, index) => {
+        
+            if (urlRegex.test(part)) {
+                return (
+                    <a href={part} key={index} target="_blank" rel="noopener noreferrer">
+                        {part}
+                    </a>
+                );
+            }
+
+            
+            return part;
+        });
+    }
 
     return (
         <div>
@@ -112,7 +134,7 @@ export default function Comments(props: any) {
                         </div>
                         <div className={`${styles.commentsList} ${comments.length === 0 ? styles.noComments : ''}`}>
                             {comments.map((comment, index) => (
-                                <div> <img src={listVignette} alt="Vignette of list" className={styles.listVignette} /> <span>{author[index] != "" && (author[index]) || "Anonymous"}</span> <p key={index}>{comment}</p></div>
+                                <div> <img src={listVignette} alt="Vignette of list" className={styles.listVignette} /> <span>{author[index] != "" && (author[index]) || "Anonymous"}</span> <p key={index}>{formatComment(comment)}</p></div>
                             ))}
                         </div>
                         <div className={styles.controlComments}>

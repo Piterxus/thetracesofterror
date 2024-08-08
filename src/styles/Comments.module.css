@@ -104,6 +104,13 @@ span {
 
 }
 
+.noComments {
+    background-image: url(/imgs/nocommentsimg.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 textarea {
     width: 60%;
     height: 30px;

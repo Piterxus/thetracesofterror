@@ -68,10 +68,10 @@ export default function Comments(props: any) {
     }, [props.id]);
 
     const handleComments = () => {
-        
+
         const commentsContainer = document.getElementById(`comments-${props.id}`) as HTMLDivElement | null;
         const body = document.querySelector('body') as HTMLBodyElement | null;
- 
+
         if (commentsContainer) {
             commentsContainer.style.display = commentsContainer.style.display === 'flex' ? 'none' : 'flex';
             if (body) {
@@ -88,10 +88,10 @@ export default function Comments(props: any) {
             if (body) {
                 body.style.overflow = commentsContainer.style.display === 'none' ? 'auto' : 'hidden';
             }
-          
-          
+
+
         }
-     
+
     }
 
     return (
@@ -105,15 +105,12 @@ export default function Comments(props: any) {
                     <img src={props.src} alt="" className={styles.imgComment} />
                 </div>
                 <div>
-
-
-
                     <div className={styles.controlCommentsWImg}>
                         <div onClick={closeComments} className={styles.imagesComments}>
                             <img className={styles.icon} src={commentsIcon} alt="Comments icon" id="icon" />
                             <img className={styles.comic} src={closeCommentsImg} alt="Image with message to encourage commenting" />
                         </div>
-                        <div className={styles.commentsList}>
+                        <div className={`${styles.commentsList} ${comments.length === 0 ? styles.noComments : ''}`}>
                             {comments.map((comment, index) => (
                                 <div> <img src={listVignette} alt="Vignette of list" className={styles.listVignette} /> <span>{author[index] != "" && (author[index]) || "Anonymous"}</span> <p key={index}>{comment}</p></div>
                             ))}
@@ -121,13 +118,13 @@ export default function Comments(props: any) {
                         <div className={styles.controlComments}>
                             <textarea name="comments" placeholder="Write your comment here..."></textarea>
                             <input type="text" name="author" placeholder="Your name" />
-                           
+
                             <button id={`comment-upload-${props.id}`}>Post</button>
                         </div>
-                       
+
                     </div>
                 </div>
-              
+
             </div>
         </div>
     );

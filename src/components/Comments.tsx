@@ -89,13 +89,9 @@ export default function Comments(props: any) {
                 body.style.overflow = commentsContainer.style.display === 'none' ? 'auto' : 'hidden';
             }
           
-            // if (body) {
-            //     body.style.overflow = 'auto';
-            // }
+          
         }
-        // if (body) {
-        //     body.style.overflow = 'auto';
-        // }
+     
     }
 
     return (
@@ -125,7 +121,7 @@ export default function Comments(props: any) {
                         <div className={styles.controlComments}>
                             <textarea name="comments" placeholder="Write your comment here..."></textarea>
                             <input type="text" name="author" placeholder="Your name" />
-                            {/* <input id={`comment-upload-${props.id}`} type="submit" value="Post" /> */}
+                           
                             <button id={`comment-upload-${props.id}`}>Post</button>
                         </div>
                        

@@ -217,5 +217,10 @@ const filterLinks = links.filter(
       font-size: 1.5rem;
     }
   }
-
+  @media (max-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2),
+    (max-width: 1024px) and (orientation: landscape) and (min-resolution: 192dpi) {
+    h1 {
+     display: none;
+    }
+  }
 </style>

@@ -1,65 +1,56 @@
-  /* @font-face {
-      font-family: "Fright";
-      src: url(../fright_maiden/Fright\ Maiden\ Demo.ttf) format("truetype");
-  } */
+.imageGallery {
+    margin-top: 30px;
+}
 
-  .imageGallery {
-      margin-top: 30px;
-  }
+.uploaded {
+    color: white;
+    font-family: "Fright";
+    text-align: center;
+}
 
-  .uploaded {
-      color: white;
-      font-family: "Fright";
-      text-align: center;
-  }
-
-  .imageContainer {
-      border: 0.5px solid #23262d;
-      margin: 10px;
-      padding: 10px;
-      border-radius: 5px;
-      box-shadow: 0 0 15px #0FF;
-      margin-bottom: 100px;
-  }
+.imageContainer {
+    border: 0.5px solid #23262d;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 15px #0FF;
+    margin-bottom: 100px;
+}
 
 
 
-  .galleryImage {
-      width: 40vw;
-      height: 40vh;
-      object-fit: fill;
-      border-radius: 5px;
-  }
+.galleryImage {
+    width: 40vw;
+    height: 40vh;
+    object-fit: fill;
+    border-radius: 5px;
+}
 
-  .creditsComments {
-      display: flex;
-      justify-content: space-between;
-  }
-
-
-  @media (max-width: 480px) {
+.creditsComments {
+    display: flex;
+    justify-content: space-between;
+}
 
 
-      .galleryImage {
-          width: 90vw;
-
-      }
+@media (max-width: 480px) {
 
 
-  }
+    .galleryImage {
+        width: 90vw;
 
-  @media (max-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2),
-  (max-width: 1024px) and (orientation: landscape) and (min-resolution: 192dpi) {
+    }
 
 
-      /* .uploaded {
-         
-          display: none;
+}
 
-      } */
+@media (max-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2),
+(max-width: 1024px) and (orientation: landscape) and (min-resolution: 192dpi) {
 
-      .galleryImage {
-          width: 70vw;
-          height: 70vh;
-      }
-  }
+
+
+
+    .galleryImage {
+        width: 70vw;
+        height: 70vh;
+    }
+}

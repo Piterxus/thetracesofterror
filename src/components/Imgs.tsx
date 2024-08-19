@@ -3,12 +3,6 @@ import styles from '../styles/Imgs.module.css';
 import Popup from './Popup';
 import Comments from "./Comments";
 
-
-
-
-
-
-
 export default function Imgs() {
     const [imgs, setImgs] = useState<string[]>([]);
     const [uploadedImgs, setUploadedImgs] = useState<string[]>([]);
@@ -25,7 +19,7 @@ export default function Imgs() {
                 throw new Error(`Failed to fetch images: ${res.statusText}`);
             }
             const data = await res.json();
-           
+
             const rawPath = window.location.pathname;
             const cleanPath = rawPath.replace(/^\/|\/$/g, '');
             const filteredData = data.filter((img: any) => img.type === cleanPath);
@@ -37,33 +31,11 @@ export default function Imgs() {
             console.error("Error fetching images:", error);
         }
     }
-    // async function fetchComments() {
-    //     try {
-    //         const res = await fetch(import.meta.env.PUBLIC_COMMENTS_API_URL);
-    //         if (!res.ok) {
-    //             throw new Error(`Failed to fetch comments: ${res.statusText}`);
-    //         }
-    //         const data = await res.json();
-    //         const filterComments = data.filter((comment: any) => comment.id_img === 2)
-    //         const content = filterComments.map((comment: any) => comment.content)
-    //         setComments(content);
-    //         console.log("Filtered comments:", filterComments);
-    //         console.log("Content:", content);
-    //         console.log("Comments:", data);
-    //     } catch (error) {
-    //         console.error("Error fetching comments:", error);
-    //     }
-    // }
+
 
     useEffect(() => {
         fetchImgs();
-        // fetchComments();
-        //¿Sirve esta función para algo?
-        // const handleImageUploaded = () => {
-        //     fetchImgs();
-        // };
 
-        // document.addEventListener('imageUploaded', handleImageUploaded);
 
         const fileUpload = document.getElementById('file-upload') as HTMLInputElement | null;
         const uploaderInput = document.querySelector('input[name="uploaded"]') as HTMLInputElement | null;
@@ -122,9 +94,7 @@ export default function Imgs() {
             });
         }
 
-        // return () => {
-        //     document.removeEventListener('imageUploaded', handleImageUploaded);
-        // };
+
     }, []);
 
 
@@ -200,7 +170,7 @@ export default function Imgs() {
                             )}
 
                         </div>
-                        <Comments comments={comments} id={id_img[index]} src={`${import.meta.env.PUBLIC_IMAGES_URL}${img}`}/>
+                        <Comments comments={comments} id={id_img[index]} src={`${import.meta.env.PUBLIC_IMAGES_URL}${img}`} />
                     </div>
                 </div>
             ))}

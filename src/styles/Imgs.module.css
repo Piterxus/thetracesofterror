@@ -47,7 +47,9 @@
 (max-width: 1024px) and (orientation: landscape) and (min-resolution: 192dpi) {
 
 
-    
+    .imageGallery {
+        margin-top: 100px;
+    }
 
     .galleryImage {
         width: 70vw;

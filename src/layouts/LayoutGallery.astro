@@ -1,6 +1,7 @@
 ---
 import Layout from "./Layout.astro";
 import Imgs from "../components/Imgs";
+import FloatingPromoter from "../components/FloatingPromoter.astro"
 
 interface Props {
   sectionTitle: string;
@@ -20,6 +21,7 @@ const filterLinks = links.filter(
 ---
 
 <Layout title="the traces of terror">
+  <FloatingPromoter/>
   <div class="galleryHeader">
     <h1>{sectionTitle}</h1>
     <div class="links">
